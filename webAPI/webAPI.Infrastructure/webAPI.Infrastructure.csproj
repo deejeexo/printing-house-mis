@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\webAPI.Shared\webAPI.Shared.csproj" />
+    <ProjectReference Include="..\webAPI.Bussiness\webAPI.Bussiness.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Exceptions\" />
+    <None Remove="Persistence\" />
+    <None Remove="Persistence\Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Persistence\" />
+    <Folder Include="Persistence\Repository\" />
+  </ItemGroup>
+</Project>
