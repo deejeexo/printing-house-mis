@@ -14,10 +14,12 @@
     <None Remove="Services\" />
     <None Remove="Validations\" />
     <None Remove="Utilities\" />
+    <None Remove="Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Validations\" />
     <Folder Include="Utilities\" />
+    <Folder Include="Profiles\" />
   </ItemGroup>
 </Project>
