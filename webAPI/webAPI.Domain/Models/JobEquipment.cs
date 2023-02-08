@@ -7,14 +7,12 @@ namespace webAPI.Domain.Models
         [Required]
         public required Guid JobId { get; set; }
 
-        [Required]
-        public required Job Job { get; set; }
+        public Job? Job { get; set; }
 
         [Required]
         public required int EquipmentId { get; set; }
 
-        [Required]
-        public required Equipment Equipment { get; set; }
+        public Equipment? Equipment { get; set; }
 
         [Required]
         public required int Hours { get; set; }

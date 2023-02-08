@@ -14,16 +14,16 @@
     <None Remove="Exceptions\" />
     <None Remove="Persistence\" />
     <None Remove="Persistence\Repository\" />
-    <None Remove="Persistence\Repository\IRepository\" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
     <Folder Include="Persistence\" />
     <Folder Include="Persistence\Repository\" />
-    <Folder Include="Persistence\Repository\IRepository\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">

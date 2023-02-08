@@ -8,8 +8,7 @@ namespace webAPI.Domain.Models
         [Required]
         public required Guid CustomerId { get; set; }
 
-        [Required]
-        public required User User { get; set; }
+        public User? User { get; set; }
 
         [Required]
         public required string Description { get; set; }

@@ -3,7 +3,7 @@
 	public enum UserType
 	{
 		Employee,
-		Customer
+		Client
 	}
 }
 

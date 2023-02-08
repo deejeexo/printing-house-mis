@@ -8,8 +8,7 @@ namespace webAPI.Domain.Models
         [Required]
         public required Guid UserId { get; set; }
 
-        [Required]
-        public required User User { get; set; }
+        public User? User { get; set; }
 
         [Required]
         public required Position Position { get; set; }

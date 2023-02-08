@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using webAPI.Extensions;
 using webAPI.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     ));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddRepository();
+builder.Services.AddServices();
+builder.Services.AddValidators();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
@@ -19,6 +24,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

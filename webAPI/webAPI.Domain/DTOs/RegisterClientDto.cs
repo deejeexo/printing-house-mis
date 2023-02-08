@@ -1,19 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using webAPI.Domain.Enums;
 
-namespace webAPI.Domain.Models
+namespace webAPI.Domain.DTOs
 {
-    public class User : EntityBase
+    public class RegisterClientDto
     {
         [Required]
         public required string Name { get; set; }
 
         [Required]
         public required string Password { get; set; }
-
-        public required byte[]? PasswordHash { get; set; }
-
-        public required byte[]? PasswordSalt { get; set; }
 
         [Required]
         public required string Email { get; set; }
@@ -23,10 +20,6 @@ namespace webAPI.Domain.Models
 
         [Required]
         public required string Address { get; set; }
-
-        [Required]
-        public required UserType UserType { get; set; }
-
-        public Position? Position { get; set; }
     }
 }
+
