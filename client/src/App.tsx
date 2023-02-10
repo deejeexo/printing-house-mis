@@ -1,5 +1,7 @@
+import ClientPage from "./pages/ClientPage";
+
 function App() {
-  return <div className="App">PrintHaus MIS</div>;
+  return <ClientPage></ClientPage>;
 }
 
 export default App;
