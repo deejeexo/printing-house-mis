@@ -7,7 +7,7 @@ import StatsSection from "../components/LandingPage/StatsSection";
 
 function ClientPage() {
   return (
-    <div>
+    <div className="animate-ping-short">
       <MainSection></MainSection>
       <hr></hr>
       <FeatureSection></FeatureSection>

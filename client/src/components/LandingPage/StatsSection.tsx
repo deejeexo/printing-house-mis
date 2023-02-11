@@ -1,5 +1,3 @@
-import React from "react";
-
 function StatsSection() {
   return (
     <div className="container my-24 px-6 mx-auto">

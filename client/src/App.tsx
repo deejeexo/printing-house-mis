@@ -1,13 +1,15 @@
 import ClientPage from "./pages/ClientPage";
 import { Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SignupPage from "./pages/SignupPage/SignupPage";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<ClientPage />} />
-        <Route path="/signup" element={<div></div>} />
-        <Route path="/login" element={<div></div>} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );

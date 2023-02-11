@@ -1,5 +1,3 @@
-import React from "react";
-
 function FeatureSection() {
   return (
     <div className="container my-6 px-6 mx-auto">
