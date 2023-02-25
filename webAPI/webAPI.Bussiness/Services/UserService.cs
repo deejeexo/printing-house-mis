@@ -83,6 +83,13 @@ namespace webAPI.Bussiness.Services
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
+
+        public async Task<UserDto?> GetUser(Guid id)
+        {
+            var user = await _unitOfWork.User.GetAsync(user => user.Id == id);
+            if (user is not null) return _mapper.Map<UserDto>(user);
+            return null;
+        }
     }
 }
 

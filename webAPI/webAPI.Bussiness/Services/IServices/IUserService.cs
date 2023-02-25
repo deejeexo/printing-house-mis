@@ -13,6 +13,8 @@ namespace webAPI.Bussiness.Services.IServices
 
         Task<Result<User>> RegisterEmployee(RegisterEmployeeDto register);
 
+        Task<UserDto?> GetUser(Guid id);
+
         void CreatePasswordHashSalt(string password, out byte[] passwordHash, out byte[] passwordSalt);
     }
 }

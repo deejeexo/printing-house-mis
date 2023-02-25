@@ -57,7 +57,7 @@ export default function LoginPage() {
             alignItems: "center",
           }}
         >
-          <LogoComponent></LogoComponent>
+          <LogoComponent color="black"></LogoComponent>
           <Box
             component="form"
             noValidate
@@ -71,7 +71,7 @@ export default function LoginPage() {
               }}
               fullWidth
               id="email"
-              label="Email address"
+              label="El. paštas"
               name="email"
               autoComplete="email"
               error={fieldEroor}
@@ -81,7 +81,7 @@ export default function LoginPage() {
               margin="normal"
               fullWidth
               name="password"
-              label="Password"
+              label="Slaptažodis"
               type="password"
               id="password"
               error={fieldEroor}
@@ -93,15 +93,18 @@ export default function LoginPage() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Login
+              Prisijungti
             </Button>
             <Button
               style={{ textTransform: "none" }}
               fullWidth
               variant="outlined"
               sx={{ mt: 1, mb: 2 }}
+              onClick={() => {
+                navigate("/signup");
+              }}
             >
-              Don't have an account? Sign up at
+              Neturite paskyros? Užsiregistruokite
             </Button>
           </Box>
         </Box>

@@ -51,6 +51,9 @@ namespace webAPI.Controllers
 
             return Ok(result.Value);
         }
-	}
+
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<User>> GetUser(Guid id) => Ok(await _userService.GetUser(id));
+    }
 }
 

@@ -67,7 +67,7 @@ export default function SignupPage() {
             alignItems: "center",
           }}
         >
-          <LogoComponent></LogoComponent>
+          <LogoComponent color="black"></LogoComponent>
           <Box
             component="form"
             noValidate
@@ -81,7 +81,7 @@ export default function SignupPage() {
               }}
               fullWidth
               id="email"
-              label="Email address"
+              label="El. paštas"
               name="email"
               autoComplete="email"
               error={fieldEroor}
@@ -94,7 +94,7 @@ export default function SignupPage() {
               }}
               fullWidth
               id="name"
-              label="Full name"
+              label="Jūsų vardas, pavardė"
               name="name"
               autoComplete="name"
               error={fieldEroor}
@@ -106,7 +106,7 @@ export default function SignupPage() {
               margin="normal"
               fullWidth
               name="password"
-              label="Password"
+              label="Slaptažodis"
               type="password"
               id="password"
               error={fieldEroor}
@@ -116,10 +116,12 @@ export default function SignupPage() {
               value={phone}
               onChange={handleChange}
               fullWidth
-              label="Phone number"
-              placeholder="Start entering with your country code (ex. +370)"
+              label="Tel. numeris"
+              placeholder="Pradėkite įvedimą nuo savo šalies kodo (pvz. +370)"
               sx={{ marginTop: 2 }}
               error={fieldEroor}
+              onlyCountries={["LT"]}
+              langOfCountryName="LT"
             />
             <TextField
               margin="normal"
@@ -129,8 +131,9 @@ export default function SignupPage() {
               fullWidth
               sx={{ marginTop: 3 }}
               id="address"
-              label="Address"
+              label="Adresas"
               name="address"
+              placeholder="pvz. Gedimino pr. 28, LT-01104, Vilniaus m. sav."
               autoComplete="address"
               error={fieldEroor}
             />
@@ -143,7 +146,7 @@ export default function SignupPage() {
                 console.log(removeWhitespaces(phone));
               }}
             >
-              Register
+              Registruotis
             </Button>
           </Box>
         </Box>

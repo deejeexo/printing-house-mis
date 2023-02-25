@@ -4,78 +4,80 @@ function FAQSection() {
       <div className="container my-24 px-6 mx-auto">
         <section className="mb-32 text-gray-800">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            Frequently asked questions
+            Dažniausiai užduodami klausimai
           </h2>
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="mb-12">
               <p className="font-bold mb-4">
-                What kind of printing services do you offer?
+                Kokias siūlote spausdinimo paslaugas?
               </p>
               <p className="text-gray-500">
-                Our printing house offers a wide range of printing services,
-                including digital printing, offset printing, large format
-                printing, custom printing, and more. We can print on a variety
-                of materials, including paper, cardstock, vinyl, and more.
+                Mūsų spaustuvė siūlo platų spausdinimo paslaugų spektrą,
+                įskaitant skaitmeninę, ofsetinę, didelio formato spausdinimas,
+                spausdinimas pagal užsakymą ir dar daugiau. Galime spausdinti
+                ant įvairių medžiagų, įskaitant popierių, kartoną, vinilą ir kt.
               </p>
             </div>
 
             <div className="mb-12">
               <p className="font-bold mb-4">
-                Can you print custom sizes or designs?
+                Ar galite spausdinti nestandartinius dydžius arba dizainą?
               </p>
               <p className="text-gray-500">
-                Yes, we can print custom sizes and designs. We have a team of
-                graphic designers who can help you create a custom design, or
-                you can provide your own design. We can also print on a variety
-                of materials and in any size you need.
+                Taip, galime spausdinti nestandartinius dydžius ir dizainą.
+                Turime komandą grafikos dizainerių, kurie gali padėti jums
+                sukurti individualų dizainą arba galite pateikti savo dizainą.
+                Taip pat galime spausdinti ant įvairių medžiagų ir bet kokio
+                reikiamo dydžio.
               </p>
             </div>
 
             <div className="mb-12">
               <p className="font-bold mb-4">
-                How long does it take to receive my printed materials?
+                Per kiek laiko gausiu savo spausdintą medžiagą?
               </p>
               <p className="text-gray-500">
-                The turnaround time for your printed materials will depend on
-                the size and complexity of your project, as well as our current
-                production schedule. On average, our turnaround time is 2-7
-                business days. If you need your printed materials faster, we
-                offer rush printing services.
+                Spausdintinės medžiagos parengimo laikas priklauso nuo nuo jūsų
+                projekto dydžio ir sudėtingumo, taip pat nuo mūsų dabartinės
+                gamybos grafiko. Vidutiniškai mūsų darbų atlikimo laikas yra 2-7
+                darbo dienų. Jei spausdintinės medžiagos reikia greičiau, mes
+                siūlome skubios spaudos paslaugas.
               </p>
             </div>
 
             <div className="col-md-12 mb-12">
-              <p className="font-bold mb-4">Do you offer shipping services?</p>
+              <p className="font-bold mb-4">Ar siūlote siuntimo paslaugas?</p>
               <p className="text-gray-500">
-                Yes, we offer shipping services to anywhere in the world. We use
-                reliable shipping carriers to ensure that your printed materials
-                arrive safely and on time. The shipping cost will depend on the
-                size and weight of your shipment, as well as the shipping
-                destination.
-              </p>
-            </div>
-
-            <div className="mb-12">
-              <p className="font-bold mb-4">What is your return policy?</p>
-              <p className="text-gray-500">
-                Our goal is to ensure that you are completely satisfied with
-                your printed materials. If you are not satisfied with your
-                order, please contact us within 7 days of receiving your
-                shipment and we will work with you to resolve any issues. If a
-                return is necessary, we will provide instructions on how to
-                proceed.
+                Taip, siūlome siuntimo paslaugas į bet kurią pasaulio vietą. Mes
+                naudojame patikimais vežėjais, kad užtikrintume, jog jūsų
+                spausdintinė medžiaga bus pristatyti saugiai ir laiku. Siuntimo
+                kaina priklauso nuo jūsų siuntos dydžio ir svorio, taip pat nuo
+                pristatymo paskirties vietos.
               </p>
             </div>
 
             <div className="mb-12">
               <p className="font-bold mb-4">
-                How can I place an order or get a quote?
+                Kokia yra jūsų grąžinimo politika?
               </p>
               <p className="text-gray-500">
-                You can place an order or request a quote by contacting us
-                directly, either by phone, email, or through our website. Our
-                customer service team will be happy to assist you and answer any
-                questions you may have.
+                Mūsų tikslas - užtikrinti, kad būtumėte visiškai patenkinti jūsų
+                spausdinta medžiaga. Jei nesate patenkinti savo užsakymu,
+                susisiekite su mumis per 7 dienas nuo siuntos ir mes kartu su
+                jumis išspręsime visas problemas. Jei reikia grąžinti,
+                pateiksime instrukcijas, kaip tai padaryti ir kaip elgtis.
+              </p>
+            </div>
+
+            <div className="mb-12">
+              <p className="font-bold mb-4">
+                Kaip pateikti užsakymą arba gauti pasiūlymą?
+              </p>
+              <p className="text-gray-500">
+                Galite pateikti užsakymą arba paprašyti pasiūlymo susisiekę su
+                mumis tiesiogiai telefonu, el. paštu arba per mūsų svetainę.
+                Mūsų klientų aptarnavimo komanda mielai jums padės ir atsakys į
+                visus klausimus.
               </p>
             </div>
           </div>

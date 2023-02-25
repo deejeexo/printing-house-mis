@@ -10,6 +10,9 @@ namespace webAPI.Bussiness.Profiles
     {
         public UserProfile()
         {
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto, User>();
+
             CreateMap<User, RegisterClientDto>();
             CreateMap<RegisterClientDto, User>()
             .ForMember(dest => dest.Id, from => from.MapFrom(q => Guid.NewGuid()))

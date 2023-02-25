@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        "ping-short": "ping 1.5s ease-in-out 1 reverse",
+        "ping-short": "ping 1s ease-in-out 1 reverse",
       },
     },
   },

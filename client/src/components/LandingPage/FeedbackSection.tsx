@@ -2,7 +2,7 @@ function FeedbackSection() {
   return (
     <div className="container my-24 px-6 mx-auto">
       <section className="mb-32 text-gray-800 text-center">
-        <h2 className="text-3xl font-bold mb-12">Testimonials</h2>
+        <h2 className="text-3xl font-bold mb-12">Atsiliepimai</h2>
 
         <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
           <div className="mb-12 md:mb-0">
@@ -13,8 +13,10 @@ function FeedbackSection() {
                 alt=""
               />
             </div>
-            <h5 className="text-lg font-bold mb-4">Maria Smantha</h5>
-            <h6 className="font-medium text-blue-600 mb-4">Web Developer</h6>
+            <h5 className="text-lg font-bold mb-4">Ofelija Bakiene</h5>
+            <h6 className="font-medium text-blue-600 mb-4">
+              Interneto svetainių kūrėja
+            </h6>
             <p className="mb-4">
               <svg
                 aria-hidden="true"
@@ -31,12 +33,12 @@ function FeedbackSection() {
                   d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"
                 ></path>
               </svg>
-              I have been using your printing services for several years now,
-              and I am consistently impressed with the quality of your products.
-              Your team is always professional and knowledgeable, and they go
-              above and beyond to ensure that my projects are completed on time
-              and to my exact specifications. I highly recommend your services
-              to anyone in need of high-quality printing.
+              Jau kelerius metus naudojuosi jūsų spausdinimo paslaugomis, ir esu
+              nuolat sužavėtas jūsų produktų kokybe. Jūsų komanda visada
+              profesionali ir kompetentinga, ir jie eina viršija savo galimybes
+              ir užtikrina, kad mano projektai būtų užbaigti laiku. ir atitinka
+              mano specifikacijas. Labai rekomenduoju jūsų paslaugas visiems,
+              kuriems reikia aukštos kokybės spaudos.
             </p>
             <ul className="flex justify-center mb-0">
               <li>
@@ -134,8 +136,10 @@ function FeedbackSection() {
                 alt=""
               />
             </div>
-            <h5 className="text-lg font-bold mb-4">Lisa Cudrow</h5>
-            <h6 className="font-medium text-blue-600 mb-4">Graphic Designer</h6>
+            <h5 className="text-lg font-bold mb-4">Akvile Kriugzdaite</h5>
+            <h6 className="font-medium text-blue-600 mb-4">
+              Grafikos dizainerė
+            </h6>
             <p className="mb-4">
               <svg
                 aria-hidden="true"
@@ -152,12 +156,12 @@ function FeedbackSection() {
                   d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"
                 ></path>
               </svg>
-              I recently placed an order for custom business cards, and I
-              couldn't be happier with the results. The print quality was
-              excellent, the colors were vibrant, and the final product was
-              exactly what I was looking for. Your team was also incredibly
-              helpful in guiding me through the ordering process and answering
-              all of my questions. Thank you for a great experience!
+              Neseniai užsisakiau nestandartinių vizitinių kortelių ir negalėjau
+              būti labiau patenkinta rezultatais. Spausdinimo kokybė buvo puiki,
+              spalvos buvo ryškios, o galutinis produktas buvo būtent toks,
+              kokio ieškojau. Jūsų komanda taip pat buvo neįtikėtinai padėjo man
+              per užsakymo procesą ir atsakė į į visus mano klausimus. Ačiū už
+              puikią patirtį!
             </p>
             <ul className="flex justify-center mb-0">
               <li>
@@ -255,9 +259,9 @@ function FeedbackSection() {
                 alt=""
               />
             </div>
-            <h5 className="text-lg font-bold mb-4">John Smith</h5>
+            <h5 className="text-lg font-bold mb-4">Modestas Vaisnoras</h5>
             <h6 className="font-medium text-blue-600 mb-4">
-              Marketing Specialist
+              Marketingo specialistas
             </h6>
             <p className="mb-4">
               <svg
@@ -275,13 +279,12 @@ function FeedbackSection() {
                   d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"
                 ></path>
               </svg>
-              I have had the pleasure of working with your printing house on
-              several projects, and I have always been impressed with the level
-              of customer service I have received. Your team is friendly,
-              responsive, and always goes the extra mile to ensure that I am
-              completely satisfied with my products. I would recommend your
-              services to anyone looking for high-quality printing and excellent
-              customer service.
+              Turėjau malonumą dirbti su jūsų spaustuve dėl keliuose projektuose
+              ir visada buvau sužavėtas klientų aptarnavimo lygis. Jūsų komanda
+              yra draugiška, reaguoja ir visada daro viską, kad užtikrintų, jog
+              esu visiškai patenkintas savo gaminiais. Rekomenduočiau jūsų
+              paslaugas visiems, ieškantiems aukštos kokybės spausdinimo ir
+              puikių klientų aptarnavimo.
             </p>
             <ul className="flex justify-center mb-0">
               <li>

@@ -14,14 +14,15 @@ function FeatureSection() {
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
               <div className="px-6 py-12 md:px-12">
                 <h2 className="text-3xl font-bold mb-6 pb-2">
-                  Top Quality Product
+                  Aukščiausios kokybės produktas
                 </h2>
                 <p className="text-gray-500 mb-6 pb-2">
-                  PrintHaus is dedicated to providing high-quality printing
-                  services to all of its customers. With state-of-the-art
-                  printing technology and an experienced team of printers, we
-                  ensure that every project is completed to the highest
-                  standards of quality.
+                  PrintHaus teikia aukštos kokybės spausdinimo paslaugas
+                  paslaugas visiems savo klientams. Naudodami moderniausias
+                  technologijas spausdinimo technologijomis ir patyrusia
+                  spaustuvininkų komanda, mes užtikriname, kad kiekvienas
+                  projektas būtų įgyvendintas pagal aukščiausius kokybės
+                  standartus.
                 </p>
                 <div className="flex flex-wrap mb-6">
                   <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -37,7 +38,7 @@ function FeatureSection() {
                           d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                         ></path>
                       </svg>
-                      High-Quality Printing
+                      Aukštos kokybės spausdinimas
                     </p>
                   </div>
                   <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -53,7 +54,7 @@ function FeatureSection() {
                           d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                         ></path>
                       </svg>
-                      Customizable Options
+                      Pritaikomos parinktys
                     </p>
                   </div>
                   <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -69,7 +70,7 @@ function FeatureSection() {
                           d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                         ></path>
                       </svg>
-                      Fast Turnaround Time
+                      Greitas apyvartos laikas
                     </p>
                   </div>
                   <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -85,7 +86,7 @@ function FeatureSection() {
                           d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                         ></path>
                       </svg>
-                      Reliable Shipping
+                      Patikimas pristatymas
                     </p>
                   </div>
                   <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -101,7 +102,7 @@ function FeatureSection() {
                           d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                         ></path>
                       </svg>
-                      Exceptional Customer Service
+                      Išskirtinis klientų aptarnavimas
                     </p>
                   </div>
                   <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -117,7 +118,7 @@ function FeatureSection() {
                           d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                         ></path>
                       </svg>
-                      Competitive Pricing
+                      Konkurencinga kainodara
                     </p>
                   </div>
                 </div>

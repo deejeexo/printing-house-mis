@@ -77,7 +77,7 @@ function MainSection() {
                   navigate("/login");
                 }}
               >
-                Login
+                Prisijungimas
               </button>
               <button
                 type="button"
@@ -88,7 +88,7 @@ function MainSection() {
                   navigate("/signup");
                 }}
               >
-                Sign up for free
+                Registracija
               </button>
             </div>
           </div>
@@ -99,7 +99,7 @@ function MainSection() {
             PrintHaus
             <br />
             <span className="text-blue-600">
-              Bringing your vision to life, one print at a time.
+              Jūsų vizijos įgyvendinimas po vieną spaudinį.
             </span>
           </h1>
         </div>
