@@ -9,7 +9,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LogoComponent from "../assets/LogoComponent";
 import { ISidebarCategories } from "./interfaces/ISidebarCategories";
 import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
@@ -20,6 +20,7 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 function Sidebar(props: DrawerProps) {
   const { ...other } = props;
   const navigate = useNavigate();
+  const location = useLocation();
   const { item, itemCategory } = setItemAnditemCategory();
   const [categories, setCategories] = useState<ISidebarCategories[]>([]);
 
@@ -78,6 +79,28 @@ function Sidebar(props: DrawerProps) {
       },
     ]);
   }, []);
+
+  useEffect(() => {
+    setCategories((prevCategories) => {
+      return prevCategories.map((category) => {
+        return {
+          ...category,
+          children: category.children.map((child) => {
+            if (child.navigateTo === location.pathname) {
+              return {
+                ...child,
+                active: true,
+              };
+            }
+            return {
+              ...child,
+              active: false,
+            };
+          }),
+        };
+      });
+    });
+  }, [location.pathname]);
 
   const handleCategoryClick = (id: string, navigateTo: string) => {
     setCategories((prevCategories) => {
