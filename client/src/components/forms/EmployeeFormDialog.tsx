@@ -40,13 +40,15 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
     const password = data.get("password");
     const address = data.get("address");
     const position = data.get("position");
+    const salary = data.get("salary");
     console.log(
       email,
       name,
       password,
       removeWhitespaces(phoneNumber),
       address,
-      position
+      position,
+      salary
     );
     setPhone("");
     setPosition("");
@@ -61,7 +63,15 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
     const phoneNumber = data.get("phone");
     const address = data.get("address");
     const position = data.get("position");
-    console.log(email, name, removeWhitespaces(phoneNumber), address, position);
+    const salary = data.get("salary");
+    console.log(
+      email,
+      name,
+      removeWhitespaces(phoneNumber),
+      address,
+      position,
+      salary
+    );
     setPhone("");
     setPosition("");
     props.resetFormDefaultValues();
@@ -100,7 +110,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
               </DialogContentText>
             )}
             <TextField
-              margin="normal"
+              sx={{ marginBottom: 3 }}
               onFocus={() => {
                 setFieldError(false);
               }}
@@ -109,14 +119,12 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
               label="El. paštas"
               name="email"
               autoComplete="email"
+              placeholder="Darbuotojo el. pašto galūnė turi baigtis '@printhaus.com'"
               error={fieldEroor}
-              helperText={
-                "Darbuotojo el. pašto galūnė turi baigtis '@printhaus.com'"
-              }
               defaultValue={props.formDefaultValues.email}
             />
             <TextField
-              margin="normal"
+              sx={{ marginBottom: 3 }}
               onFocus={() => {
                 setFieldError(false);
               }}
@@ -130,10 +138,10 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
             />
             {props.formType === "NewForm" && (
               <TextField
+                sx={{ marginBottom: 3 }}
                 onFocus={() => {
                   setFieldError(false);
                 }}
-                margin="normal"
                 fullWidth
                 name="password"
                 label="Slaptažodis"
@@ -144,24 +152,25 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
               />
             )}
             <MuiTelInput
+              sx={{ marginBottom: 3 }}
               value={phone || props.formDefaultValues.phoneNumber}
               onChange={handleChange}
               fullWidth
               name="phone"
               label="Tel. numeris"
               placeholder="Pradėkite įvedimą nuo savo šalies kodo (pvz. +370)"
-              sx={{ marginTop: 2 }}
+              // sx={{ marginTop: 2 }}
               error={fieldEroor}
               onlyCountries={["LT"]}
               langOfCountryName="LT"
             />
             <TextField
-              margin="normal"
+              sx={{ marginBottom: 3 }}
               onFocus={() => {
                 setFieldError(false);
               }}
               fullWidth
-              sx={{ marginTop: 3, marginBottom: 3 }}
+              // sx={{ marginTop: 3, marginBottom: 3 }}
               id="address"
               label="Adresas"
               name="address"
@@ -169,6 +178,20 @@ export default function EmployeeFormDialog(props: IFormDialogProps) {
               autoComplete="address"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.address}
+            />
+            <TextField
+              sx={{ marginBottom: 3 }}
+              type="number"
+              onFocus={() => {
+                setFieldError(false);
+              }}
+              fullWidth
+              id="salary"
+              label="Alyginimas"
+              name="salary"
+              autoComplete="salary"
+              error={fieldEroor}
+              defaultValue={props.formDefaultValues.salary}
             />
             <FormControl fullWidth>
               <InputLabel id="position">Pareigos</InputLabel>

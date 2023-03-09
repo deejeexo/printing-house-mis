@@ -15,6 +15,7 @@ function EmployeesManagerPage() {
     phoneNumber: "",
     address: "",
     position: "",
+    salary: 0,
   };
 
   const [open, setOpen] = useState(false);
@@ -35,6 +36,7 @@ function EmployeesManagerPage() {
         phoneNumber: selectedItem.phoneNumber,
         address: selectedItem.address,
         position: selectedItem.position,
+        salary: selectedItem.salary,
       });
       setFormType("EditForm");
     } else {
@@ -85,6 +87,12 @@ function EmployeesManagerPage() {
       width: 300,
       editable: false,
     },
+    {
+      field: "salary",
+      headerName: "Atlyginimas (€)",
+      width: 120,
+      editable: false,
+    },
   ];
 
   const rows: IUser[] = [
@@ -95,6 +103,7 @@ function EmployeesManagerPage() {
       phoneNumber: "+37065476567",
       address: "Kepyklos g. 17, LT-62117, Alytaus m. sav.",
       position: "5",
+      salary: 500,
     },
     {
       id: "8a5ede07-11f4-4651-8ef3-44a5167cg742",
@@ -103,6 +112,7 @@ function EmployeesManagerPage() {
       phoneNumber: "+37065477267",
       address: "Gintarės g. 17, LT-62117, Alytaus m. sav.",
       position: "8",
+      salary: 480,
     },
   ];
 
