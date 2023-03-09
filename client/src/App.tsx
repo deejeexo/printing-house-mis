@@ -2,8 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import Paperbase from "./components/Paperbase";
 import ClientPage from "./pages/ClientPage";
 import EmployeesManagerPage from "./pages/EmployeesManagerPage/EmployeesManagerPage";
+import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import NewOrderPage from "./pages/NewOrderPage/HomePage";
+import NewOrderPage from "./pages/NewOrderPage/NewOrderPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
@@ -18,11 +19,20 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path="/home"
+          path="/neworder"
           element={
             <Paperbase
               content={<NewOrderPage />}
               header={"Naujas užsakymas"}
+            ></Paperbase>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <Paperbase
+              content={<HomePage />}
+              header={"Pagrindinis"}
             ></Paperbase>
           }
         />

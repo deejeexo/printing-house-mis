@@ -15,6 +15,7 @@ import { ISidebarCategories } from "./interfaces/ISidebarCategories";
 import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
 import LocalPrintshopRoundedIcon from "@mui/icons-material/LocalPrintshopRounded";
 import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 
 function Sidebar(props: DrawerProps) {
   const { ...other } = props;
@@ -25,13 +26,24 @@ function Sidebar(props: DrawerProps) {
   useEffect(() => {
     setCategories([
       {
+        id: "Pagrindinis meniu",
+        children: [
+          {
+            id: "Pagrindinis",
+            icon: <HomeRoundedIcon />,
+            active: true,
+            navigateTo: "/home",
+          },
+        ],
+      },
+      {
         id: "Mano užsakymų valdymas",
         children: [
           {
             id: "Naujas užsakymas",
             icon: <AddBoxRoundedIcon />,
-            active: true,
-            navigateTo: "/home",
+            active: false,
+            navigateTo: "/neworder",
           },
           {
             id: "Mano užsakymai",
