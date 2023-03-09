@@ -18,7 +18,7 @@ export default function DataGridWindow(props: IDataGridWindowProps) {
 
   return (
     <>
-      <Box sx={{ height: 400, width: "100%" }}>
+      <Box sx={{ height: 600, width: "100%" }}>
         <DataGrid
           sx={{
             "& .MuiDataGrid-columnHeaderCheckbox .MuiDataGrid-columnHeaderTitleContainer":
