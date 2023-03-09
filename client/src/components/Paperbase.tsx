@@ -8,6 +8,7 @@ import Link from "@mui/material/Link";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { IPaperbaseProps } from "./interfaces/IPaperbaseProps";
+import ProtectedRoute from "./ProtectedRoute";
 
 function Copyright() {
   return (
@@ -175,39 +176,48 @@ export default function Paperbase(props: IPaperbaseProps) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box sx={{ display: "flex", minHeight: "100vh" }}>
-        <CssBaseline />
-        <Box
-          component="nav"
-          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        >
-          {isSmUp ? null : (
-            <Sidebar
-              PaperProps={{ style: { width: drawerWidth } }}
-              variant="temporary"
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-            />
-          )}
-          <Sidebar
-            PaperProps={{ style: { width: drawerWidth } }}
-            sx={{ display: { sm: "block", xs: "none" } }}
-          />
-        </Box>
-        <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <Header onDrawerToggle={handleDrawerToggle} title={props.header} />
-          <Box
-            component="main"
-            sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
-          >
-            {props.content}
-          </Box>
-          <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
-            <Copyright />
-          </Box>
-        </Box>
-      </Box>
-    </ThemeProvider>
+    <>
+      <ProtectedRoute
+        children={
+          <ThemeProvider theme={theme}>
+            <Box sx={{ display: "flex", minHeight: "100vh" }}>
+              <CssBaseline />
+              <Box
+                component="nav"
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+              >
+                {isSmUp ? null : (
+                  <Sidebar
+                    PaperProps={{ style: { width: drawerWidth } }}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                  />
+                )}
+                <Sidebar
+                  PaperProps={{ style: { width: drawerWidth } }}
+                  sx={{ display: { sm: "block", xs: "none" } }}
+                />
+              </Box>
+              <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <Header
+                  onDrawerToggle={handleDrawerToggle}
+                  title={props.header}
+                />
+                <Box
+                  component="main"
+                  sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
+                >
+                  {props.content}
+                </Box>
+                <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
+                  <Copyright />
+                </Box>
+              </Box>
+            </Box>
+          </ThemeProvider>
+        }
+      ></ProtectedRoute>
+    </>
   );
 }
