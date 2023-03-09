@@ -10,9 +10,7 @@ function UserSettingsPage() {
         backgroundColor: "#e0e8eb",
       }}
       elevation={0}
-    >
-      Testavimas
-    </Paper>
+    ></Paper>
   );
 }
 

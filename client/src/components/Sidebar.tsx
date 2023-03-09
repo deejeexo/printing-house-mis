@@ -12,6 +12,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoComponent from "../assets/LogoComponent";
 import { ISidebarCategories } from "./interfaces/ISidebarCategories";
+import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
+import LocalPrintshopRoundedIcon from "@mui/icons-material/LocalPrintshopRounded";
+import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
 
 function Sidebar(props: DrawerProps) {
   const { ...other } = props;
@@ -22,7 +25,7 @@ function Sidebar(props: DrawerProps) {
   useEffect(() => {
     setCategories([
       {
-        id: "Užsakymų valdymas",
+        id: "Mano užsakymų valdymas",
         children: [
           {
             id: "Naujas užsakymas",
@@ -35,6 +38,29 @@ function Sidebar(props: DrawerProps) {
             icon: <ReorderRoundedIcon />,
             active: false,
             navigateTo: "/orders",
+          },
+        ],
+      },
+      {
+        id: "Verslo valdymas",
+        children: [
+          {
+            id: "Darbuotojų valdymas",
+            icon: <PeopleAltRoundedIcon />,
+            active: false,
+            navigateTo: "/employeesmanager",
+          },
+          {
+            id: "Įrangos valdymas",
+            icon: <LocalPrintshopRoundedIcon />,
+            active: false,
+            navigateTo: "/equipmentmanager",
+          },
+          {
+            id: "Eksploatacinės medžiagos",
+            icon: <ConstructionRoundedIcon />,
+            active: false,
+            navigateTo: "/consumablemanager",
           },
         ],
       },

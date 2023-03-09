@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Paperbase from "./components/Paperbase";
 import ClientPage from "./pages/ClientPage";
+import EmployeesManagerPage from "./pages/EmployeesManagerPage/EmployeesManagerPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NewOrderPage from "./pages/NewOrderPage/HomePage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
@@ -38,6 +39,15 @@ function App() {
             <Paperbase
               content={<UserSettingsPage />}
               header={"Vartotojo nustatymai"}
+            ></Paperbase>
+          }
+        />
+        <Route
+          path="/employeesmanager"
+          element={
+            <Paperbase
+              content={<EmployeesManagerPage />}
+              header={"Darbuotojų valdymas"}
             ></Paperbase>
           }
         />

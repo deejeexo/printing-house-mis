@@ -75,7 +75,6 @@ export default function LoginPage() {
               name="email"
               autoComplete="email"
               error={fieldEroor}
-              autoFocus
             />
             <TextField
               margin="normal"

@@ -72,7 +72,7 @@ export default function SignupPage() {
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 5, width: 600 }}
+            sx={{ mt: 5 }}
           >
             <TextField
               margin="normal"
@@ -85,7 +85,6 @@ export default function SignupPage() {
               name="email"
               autoComplete="email"
               error={fieldEroor}
-              autoFocus
             />
             <TextField
               margin="normal"
