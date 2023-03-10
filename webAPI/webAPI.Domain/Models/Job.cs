@@ -14,6 +14,9 @@ namespace webAPI.Domain.Models
         public required string Description { get; set; }
 
         [Required]
+        public required byte[] WordFileData { get; set; }
+
+        [Required]
         public required int Quantity { get; set; }
 
         [Required]
