@@ -1,4 +1,7 @@
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
+import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
+import LocalPrintshopRoundedIcon from "@mui/icons-material/LocalPrintshopRounded";
+import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
 import ReorderRoundedIcon from "@mui/icons-material/ReorderRounded";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -12,10 +15,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoComponent from "../assets/LogoComponent";
 import { ISidebarCategories } from "./interfaces/ISidebarCategories";
-import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
-import LocalPrintshopRoundedIcon from "@mui/icons-material/LocalPrintshopRounded";
-import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import NewspaperRoundedIcon from "@mui/icons-material/NewspaperRounded";
 
 function Sidebar(props: DrawerProps) {
   const { ...other } = props;
@@ -30,10 +30,10 @@ function Sidebar(props: DrawerProps) {
         id: "Pagrindinis meniu",
         children: [
           {
-            id: "Pagrindinis",
-            icon: <HomeRoundedIcon />,
+            id: "Naujienos",
+            icon: <NewspaperRoundedIcon />,
             active: true,
-            navigateTo: "/home",
+            navigateTo: "/news",
           },
         ],
       },

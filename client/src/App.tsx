@@ -4,7 +4,7 @@ import ClientPage from "./pages/ClientPage";
 import ConsumableManagerPage from "./pages/ConsumableManagerPage/ConsumableManagerPage";
 import EmployeesManagerPage from "./pages/EmployeesManagerPage/EmployeesManagerPage";
 import EquipmentManagerPage from "./pages/EquipmentManagerPage/EquipmentManagerPage";
-import HomePage from "./pages/HomePage/HomePage";
+import News from "./pages/NewsPage/News";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NewOrderPage from "./pages/NewOrderPage/NewOrderPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -30,12 +30,9 @@ function App() {
           }
         />
         <Route
-          path="/home"
+          path="/news"
           element={
-            <Paperbase
-              content={<HomePage />}
-              header={"Pagrindinis"}
-            ></Paperbase>
+            <Paperbase content={<News />} header={"Naujienos"}></Paperbase>
           }
         />
         <Route
