@@ -102,7 +102,7 @@ export const DataGridLocale: GridLocaleText = {
     `${visibleCount.toLocaleString()} iš ${totalCount.toLocaleString()}`,
 
   MuiTablePagination: {
-    labelDisplayedRows: ({ from, to, count }) => `${count} iš ${to}`,
+    labelDisplayedRows: ({ from, to, count }) => `${from} - ${to} iš ${count}`,
   },
 
   // Checkbox selection text
