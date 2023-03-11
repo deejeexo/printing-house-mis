@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import UserSettingsPage from "./pages/UserSettingsPage/UserSettingsPage";
+import OrdersManagerPage from "./pages/OrdersManagerPage/OrdersManagerPage";
 
 function App() {
   return (
@@ -77,6 +78,15 @@ function App() {
             <Paperbase
               content={<ConsumableManagerPage />}
               header={"Eksploatacinių medžiagų valdymas"}
+            ></Paperbase>
+          }
+        />
+        <Route
+          path="/ordersmanager"
+          element={
+            <Paperbase
+              content={<OrdersManagerPage />}
+              header={"Užsakymų valdymas"}
             ></Paperbase>
           }
         />

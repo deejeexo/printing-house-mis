@@ -16,6 +16,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import LogoComponent from "../assets/LogoComponent";
 import { ISidebarCategories } from "./interfaces/ISidebarCategories";
 import NewspaperRoundedIcon from "@mui/icons-material/NewspaperRounded";
+import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 
 function Sidebar(props: DrawerProps) {
   const { ...other } = props;
@@ -60,6 +61,13 @@ function Sidebar(props: DrawerProps) {
       {
         id: "Verslo valdymas",
         children: [
+          {
+            id: "Užsakymų valdymas",
+            icon: <BorderColorRoundedIcon />,
+            active: false,
+            navigateTo: "/ordersmanager",
+            allowedCategories: [0],
+          },
           {
             id: "Darbuotojų valdymas",
             icon: <PeopleAltRoundedIcon />,
