@@ -17,8 +17,9 @@ import { MuiTelInput } from "mui-tel-input";
 import React, { useState } from "react";
 import { Positions } from "../../data/Positions";
 import { IFormDialogProps } from "../interfaces/IFormDialogProps";
+import { IUser } from "../interfaces/IUser";
 
-export default function EmployeeFormDialog(props: IFormDialogProps) {
+export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
   const [phone, setPhone] = useState("");
   const [position, setPosition] = useState("");
   const [fieldEroor, setFieldError] = useState<boolean>(false);

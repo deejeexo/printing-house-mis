@@ -16,7 +16,6 @@
         InkjetPrinter,
         WideFormatPrinter,
         PrepressScanner,
-        ProofingPrinter,
         Guillotine,
         BookletMaker,
     }

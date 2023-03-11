@@ -27,6 +27,11 @@ export default function DataGridWindow(props: IDataGridWindowProps) {
               },
           }}
           components={{ Toolbar: GridToolbar }}
+          componentsProps={{
+            toolbar: {
+              csvOptions: { utf8WithBom: true },
+            },
+          }}
           rows={props.rows}
           columns={visibleColumns}
           onColumnVisibilityChange={handleColumnVisibilityChange}

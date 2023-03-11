@@ -22,7 +22,7 @@ function News() {
       {
         orderNo: 2,
         date: "2023-02-12",
-        title: "Speciali nuolaida [nuo 2023-02-13 iki [2023-02-15]",
+        title: "Speciali nuolaida [nuo 2023-02-13 iki 2023-02-15]",
         content:
           "Švęsdami savo 1 metų sukaktuves, siūlome specialią nuolaidą visiems šį mėnesį pateiktiems užsakymams. Nepraleiskite šio riboto laiko pasiūlymo!",
       },

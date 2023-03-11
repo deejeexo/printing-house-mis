@@ -1,0 +1,18 @@
+export const Equipments = [
+  { value: 1, label: "Ofsetinės spaudos mašina" },
+  { value: 2, label: "Skaitmeninės spaudos mašina" },
+  { value: 3, label: "Pjaustymo staklės" },
+  { value: 4, label: "Įrišimo mašina" },
+  { value: 5, label: "Lankstymo mašina" },
+  { value: 6, label: "Išpjaustymo staklės" },
+  { value: 7, label: "Laminavimo mašina" },
+  { value: 8, label: "Siuvimo mašina" },
+  { value: 9, label: "Pakavimo mašina" },
+  { value: 10, label: "Plokščių gaminimo mašina" },
+  { value: 11, label: "Plokščių apdorojimo įrenginys" },
+  { value: 12, label: "Rašalinis spausdintuvas" },
+  { value: 13, label: "Plačiaformatis spausdintuvas" },
+  { value: 14, label: "Parengiamosios spaudos skeneris" },
+  { value: 15, label: "Giljotina" },
+  { value: 16, label: "Bukletų kūrimo mašina" },
+];

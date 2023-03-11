@@ -23,7 +23,7 @@ function EmployeesManagerPage() {
     initialFormDefaultValues
   );
   const [formType, setFormType] =
-    useState<IFormDialogProps["formType"]>("NewForm");
+    useState<IFormDialogProps<IUser>["formType"]>("NewForm");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

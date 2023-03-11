@@ -1,10 +1,8 @@
-import { IUser } from "./IUser";
-
-export interface IFormDialogProps {
+export interface IFormDialogProps<T> {
   handleClose: () => void;
   handleOpen: () => void;
   resetFormDefaultValues: () => void;
   formType: "NoPreference" | "NewForm" | "EditForm";
-  formDefaultValues: IUser;
+  formDefaultValues: T;
   open: boolean;
 }
