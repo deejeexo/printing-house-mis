@@ -10,4 +10,5 @@ interface Children {
   icon: React.ReactElement;
   active: boolean;
   navigateTo: string;
+  allowedCategories: number[];
 }

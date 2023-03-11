@@ -34,6 +34,7 @@ function Sidebar(props: DrawerProps) {
             icon: <NewspaperRoundedIcon />,
             active: true,
             navigateTo: "/news",
+            allowedCategories: [0],
           },
         ],
       },
@@ -45,12 +46,14 @@ function Sidebar(props: DrawerProps) {
             icon: <AddBoxRoundedIcon />,
             active: false,
             navigateTo: "/neworder",
+            allowedCategories: [0],
           },
           {
             id: "Mano užsakymai",
             icon: <ReorderRoundedIcon />,
             active: false,
             navigateTo: "/orders",
+            allowedCategories: [0],
           },
         ],
       },
@@ -62,18 +65,21 @@ function Sidebar(props: DrawerProps) {
             icon: <PeopleAltRoundedIcon />,
             active: false,
             navigateTo: "/employeesmanager",
+            allowedCategories: [0],
           },
           {
             id: "Įrangos valdymas",
             icon: <LocalPrintshopRoundedIcon />,
             active: false,
             navigateTo: "/equipmentmanager",
+            allowedCategories: [0],
           },
           {
             id: "Eksploatacinės medžiagos",
             icon: <ConstructionRoundedIcon />,
             active: false,
             navigateTo: "/consumablemanager",
+            allowedCategories: [0],
           },
         ],
       },
@@ -81,24 +87,31 @@ function Sidebar(props: DrawerProps) {
   }, []);
 
   useEffect(() => {
+    const role = sessionStorage.getItem("role");
     setCategories((prevCategories) => {
-      return prevCategories.map((category) => {
-        return {
-          ...category,
-          children: category.children.map((child) => {
-            if (child.navigateTo === location.pathname) {
+      return prevCategories
+        .filter((category) => {
+          return category.children.some((child) =>
+            child.allowedCategories.includes(parseInt(role || "0"))
+          );
+        })
+        .map((category) => {
+          return {
+            ...category,
+            children: category.children.map((child) => {
+              if (child.navigateTo === location.pathname) {
+                return {
+                  ...child,
+                  active: true,
+                };
+              }
               return {
                 ...child,
-                active: true,
+                active: false,
               };
-            }
-            return {
-              ...child,
-              active: false,
-            };
-          }),
-        };
-      });
+            }),
+          };
+        });
     });
   }, [location.pathname]);
 
