@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { IProtectedRoute } from "./interfaces/IProtectedRoute";
 
-function ProtectedRoute({ children }: IProtectedRoute) {
+function ProtectedRoute(props: IProtectedRoute) {
   // const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -17,7 +17,7 @@ function ProtectedRoute({ children }: IProtectedRoute) {
   useEffect(() => {
     checkIfUserLoggedIn();
   }, [isLoggedIn, checkIfUserLoggedIn]);
-  return <>{isLoggedIn ? children : null}</>;
+  return <>{isLoggedIn ? props.children : null}</>;
 }
 
 export default ProtectedRoute;
