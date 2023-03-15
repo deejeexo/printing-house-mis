@@ -24,6 +24,7 @@ function NewOrderPage() {
   const [open, setOpen] = useState(true);
   const [error, setError] = useState(false);
   const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  const currentDate: Date = new Date();
 
   const handleCloseSnackBar = (
     event?: React.SyntheticEvent | Event,
@@ -71,7 +72,7 @@ function NewOrderPage() {
     const fileUrl = fileUploadResponse.link;
     const quantity = filledFormData.get("quantity");
     const jobStatus = 16;
-    const due = "2023-03-15T15:44:15.193Z";
+    const due: Date = new Date(currentDate.setDate(currentDate.getDate() + 14));
 
     try {
       await axios({
