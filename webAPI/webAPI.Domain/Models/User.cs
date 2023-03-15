@@ -8,9 +8,6 @@ namespace webAPI.Domain.Models
         [Required]
         public required string Name { get; set; }
 
-        [Required]
-        public required string Password { get; set; }
-
         public required byte[]? PasswordHash { get; set; }
 
         public required byte[]? PasswordSalt { get; set; }
@@ -26,6 +23,9 @@ namespace webAPI.Domain.Models
 
         [Required]
         public required UserType UserType { get; set; }
+
+        [Required]
+        public required int Salary { get; set; }
 
         public Position? Position { get; set; }
     }

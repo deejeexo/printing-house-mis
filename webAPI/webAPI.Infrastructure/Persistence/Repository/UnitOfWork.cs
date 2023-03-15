@@ -1,5 +1,6 @@
 ﻿using System;
 using webAPI.Bussiness;
+using webAPI.Bussiness.Interfaces;
 using webAPI.Infrastructure.Persistence.Repository.IRepository;
 
 namespace webAPI.Infrastructure.Persistence.Repository
@@ -12,9 +13,12 @@ namespace webAPI.Infrastructure.Persistence.Repository
         {
             this._db = db;
             User = new UserRepository(db);
+            Job = new JobRepository(db);
         }
 
         public IUserRepository User { get; set; }
+
+        public IJobRepository Job { get; set; }
 
         public void Save()
         {

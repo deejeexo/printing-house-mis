@@ -3,15 +3,14 @@ namespace webAPI.Domain.Enums
 {
     public enum JobStatus
     {
+        Empty,
         Delayed,
         Completed,
         Cancelled,
         PendingApproval,
-        InQueue,
-        InReview,
+        Approved,
         ReadyForPrinting,
         Printing,
-        Proofing,
         QualityControl,
         Finishing,
         Packaging,
@@ -19,7 +18,7 @@ namespace webAPI.Domain.Enums
         Delivered,
         Billing,
         PaymentReceived,
-        Archived
+        Archived,
+        New
     }
 }
-

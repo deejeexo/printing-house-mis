@@ -83,7 +83,6 @@ export default function SignupPage() {
               id="email"
               label="El. paštas"
               name="email"
-              autoComplete="email"
               error={fieldEroor}
             />
             <TextField
@@ -95,7 +94,6 @@ export default function SignupPage() {
               id="name"
               label="Jūsų vardas, pavardė"
               name="name"
-              autoComplete="name"
               error={fieldEroor}
             />
             <TextField
@@ -109,7 +107,6 @@ export default function SignupPage() {
               type="password"
               id="password"
               error={fieldEroor}
-              autoComplete="current-password"
             />
             <MuiTelInput
               value={phone}
@@ -133,7 +130,6 @@ export default function SignupPage() {
               label="Adresas"
               name="address"
               placeholder="pvz. Gedimino pr. 28, LT-01104, Vilniaus m. sav."
-              autoComplete="address"
               error={fieldEroor}
             />
             <Button

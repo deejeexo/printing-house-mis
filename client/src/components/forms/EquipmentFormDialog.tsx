@@ -74,7 +74,6 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
               id="name"
               label="Įrangos identifikatorius"
               name="name"
-              autoComplete="name"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.name}
             />

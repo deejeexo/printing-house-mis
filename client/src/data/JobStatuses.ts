@@ -1,0 +1,18 @@
+export const JobStatuses = [
+  { value: 1, label: "Atidėtas" },
+  { value: 2, label: "Užbaigtas" },
+  { value: 3, label: "Atšauktas" },
+  { value: 4, label: "Laukia patvirtinimo" },
+  { value: 5, label: "Patvirtintas" },
+  { value: 6, label: "Paruoštas spausdinimui" },
+  { value: 7, label: "Spausdinamas" },
+  { value: 8, label: "Kokybės kontrolė" },
+  { value: 9, label: "Užbaigiamas" },
+  { value: 10, label: "Pakuojamas" },
+  { value: 11, label: "Išsiųstas pirkėjui" },
+  { value: 12, label: "Pristatytas" },
+  { value: 13, label: "Laukia apmokėjimo" },
+  { value: 14, label: "Apmokėjimas gautas" },
+  { value: 15, label: "Archyvuotas" },
+  { value: 16, label: "Naujas" },
+];

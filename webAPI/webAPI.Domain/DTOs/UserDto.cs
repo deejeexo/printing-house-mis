@@ -22,6 +22,8 @@ namespace webAPI.Domain.DTOs
         public required UserType UserType { get; set; }
 
         public Position? Position { get; set; }
+
+        public int Salary { get; set; }
     }
 }
 

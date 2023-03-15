@@ -11,6 +11,7 @@ namespace webAPI.Infrastructure
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Job> Jobs { get; set; }
     }
 }
 

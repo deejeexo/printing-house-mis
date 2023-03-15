@@ -119,7 +119,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               id="email"
               label="El. paštas"
               name="email"
-              autoComplete="email"
               placeholder="Darbuotojo el. pašto galūnė turi baigtis '@printhaus.com'"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.email}
@@ -133,7 +132,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               id="name"
               label="Darbuotojo vardas, pavardė"
               name="name"
-              autoComplete="name"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.name}
             />
@@ -149,7 +147,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
                 type="password"
                 id="password"
                 error={fieldEroor}
-                autoComplete="current-password"
               />
             )}
             <MuiTelInput
@@ -176,7 +173,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               label="Adresas"
               name="address"
               placeholder="pvz. Gedimino pr. 28, LT-01104, Vilniaus m. sav."
-              autoComplete="address"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.address}
             />
@@ -190,7 +186,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               id="salary"
               label="Alyginimas"
               name="salary"
-              autoComplete="salary"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.salary}
             />

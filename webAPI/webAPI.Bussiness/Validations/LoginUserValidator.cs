@@ -25,7 +25,7 @@ namespace webAPI.Bussiness.Validations
             }
 
             if (VerifyPasswordHash(value.Password, user.PasswordHash!, user.PasswordSalt!)) return true;
-            AddError(nameof(User.Password), "Invalid Password");
+            AddError("Password", "Invalid Password");
             return false;
         }
 

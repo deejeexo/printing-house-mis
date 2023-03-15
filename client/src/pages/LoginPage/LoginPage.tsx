@@ -73,7 +73,6 @@ export default function LoginPage() {
               id="email"
               label="El. paštas"
               name="email"
-              autoComplete="email"
               error={fieldEroor}
             />
             <TextField
@@ -84,7 +83,6 @@ export default function LoginPage() {
               type="password"
               id="password"
               error={fieldEroor}
-              autoComplete="current-password"
             />
             <Button
               type="submit"
