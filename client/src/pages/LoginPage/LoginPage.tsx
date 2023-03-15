@@ -17,15 +17,16 @@ export default function LoginPage() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     axios
-      .post("https://localhost:7244/user/login", {
+      .post("https://localhost:7198/user/login", {
         email: data.get("email"),
         password: data.get("password"),
       })
       .then(
         (response) => {
           sessionStorage.setItem("userID", response.data.id);
-          sessionStorage.setItem("roleID", response.data.role);
-          navigate("/home");
+          sessionStorage.setItem("position", response.data.position);
+          sessionStorage.setItem("loggedIn", "true");
+          navigate("/news");
         },
         (error) => {
           setFieldError(true);

@@ -11,19 +11,15 @@ function ProtectedRoute(props: IProtectedRoute) {
     const routes = [
       {
         path: "/news",
-        allowedRoles: [1],
+        allowedRoles: [0],
       },
       {
         path: "/equipmentmanager",
-        allowedRoles: [2, 1],
-      },
-      {
-        path: "/settings",
-        allowedRoles: [1, 2],
+        allowedRoles: [1],
       },
     ];
     const userLoggedInValue = sessionStorage.getItem("loggedIn");
-    const userRole = sessionStorage.getItem("userRole");
+    const position = sessionStorage.getItem("position");
 
     if (!userLoggedInValue || userLoggedInValue === "undefined") {
       setIsLoggedIn(false);
@@ -35,7 +31,7 @@ function ProtectedRoute(props: IProtectedRoute) {
     const allowedRoles =
       routes.find((route) => route.path === location.pathname)?.allowedRoles ||
       [];
-    if (!allowedRoles.includes(Number(userRole))) {
+    if (!allowedRoles.includes(Number(position))) {
       return navigate("/accessdenied");
     }
   }, [navigate, location.pathname, setIsLoggedIn]);

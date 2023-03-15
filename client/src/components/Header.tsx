@@ -1,12 +1,10 @@
 import { ThemeProvider } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import { createTheme } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import AccountMenu from "./AccountMenu";
@@ -40,13 +38,7 @@ export default function Header(props: IHeaderProps) {
                 </IconButton>
               </Grid>
               <Grid item xs />
-              <Grid item>
-                <Tooltip title="Alerts • No alerts">
-                  <IconButton color="inherit">
-                    <NotificationsIcon />
-                  </IconButton>
-                </Tooltip>
-              </Grid>
+
               <Grid item>
                 <AccountMenu></AccountMenu>
               </Grid>

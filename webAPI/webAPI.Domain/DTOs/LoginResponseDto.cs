@@ -7,7 +7,7 @@ namespace webAPI.Domain.DTOs
 	{
 		public Guid Id { get; set; }
 
-		public UserType UserType { get; set; }
+		public Position Position { get; set; }
 	}
 }
 

@@ -65,8 +65,6 @@ function NewOrderPage() {
       return;
     }
 
-    console.log("fileUploadResponse:", fileUploadResponse);
-
     const customerId = "ed520aeb-1aad-4149-9678-e09402ac359d";
     const name = filledFormData.get("name");
     const description = filledFormData.get("description");
@@ -74,9 +72,6 @@ function NewOrderPage() {
     const quantity = filledFormData.get("quantity");
     const jobStatus = 16;
     const due = "2023-03-15T15:44:15.193Z";
-
-    console.log("formData:", formData);
-    console.log("filledFormData:", filledFormData);
 
     try {
       await axios({
@@ -92,7 +87,6 @@ function NewOrderPage() {
           due: due,
         },
       });
-      console.log("Second request successful!");
       setLoading(false);
       setLoaded(true);
       reloadPage(3000);

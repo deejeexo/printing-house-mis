@@ -27,15 +27,16 @@ export default function SignupPage() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     axios
-      .post("https://localhost:7244/user/login", {
-        email: data.get("email"),
+      .post("https://localhost:7198/user/register/register-client", {
+        name: data.get("name"),
         password: data.get("password"),
+        email: data.get("email"),
+        phoneNumber: removeWhitespaces(phone),
+        address: data.get("address"),
       })
       .then(
         (response) => {
-          sessionStorage.setItem("userID", response.data.id);
-          sessionStorage.setItem("roleID", response.data.role);
-          navigate("/home");
+          navigate("/login");
         },
         (error) => {
           setFieldError(true);
@@ -132,15 +133,7 @@ export default function SignupPage() {
               placeholder="pvz. Gedimino pr. 28, LT-01104, Vilniaus m. sav."
               error={fieldEroor}
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3 }}
-              onClick={() => {
-                console.log(removeWhitespaces(phone));
-              }}
-            >
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3 }}>
               Registruotis
             </Button>
           </Box>

@@ -95,12 +95,12 @@ function Sidebar(props: DrawerProps) {
   }, []);
 
   useEffect(() => {
-    const role = sessionStorage.getItem("role");
+    const position = sessionStorage.getItem("position");
     setCategories((prevCategories) => {
       return prevCategories
         .filter((category) => {
           return category.children.some((child) =>
-            child.allowedCategories.includes(parseInt(role || "0"))
+            child.allowedCategories.includes(parseInt(position || "0"))
           );
         })
         .map((category) => {

@@ -41,6 +41,7 @@ namespace webAPI.Bussiness.Services
             userCreated.PasswordHash = passwordHash;
             userCreated.PasswordSalt = passwordSalt;
             userCreated.UserType = UserType.Client;
+            userCreated.Position = Position.Empty;
             _unitOfWork.User.Add(userCreated);
             await _unitOfWork.SaveAsync();
 
