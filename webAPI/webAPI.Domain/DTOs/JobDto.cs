@@ -9,6 +9,8 @@ namespace webAPI.Domain.DTOs
 {
 	public class JobDto
 	{
+        public required Guid Id { get; set; }
+
         public required Guid CustomerId { get; set; }
 
         public required string Name { get; set; }
