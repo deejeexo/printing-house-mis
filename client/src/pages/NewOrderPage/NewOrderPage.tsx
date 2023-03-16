@@ -62,7 +62,7 @@ function NewOrderPage() {
       fileUploadResponse = response.data;
     } catch (error) {
       setError(true);
-      reloadPage(5000);
+      reloadPage(2000);
       return;
     }
 
@@ -90,11 +90,11 @@ function NewOrderPage() {
       });
       setLoading(false);
       setLoaded(true);
-      reloadPage(3000);
+      reloadPage(2000);
     } catch (error) {
       console.error(error);
       setError(true);
-      reloadPage(5000);
+      reloadPage(2000);
     }
   };
 
