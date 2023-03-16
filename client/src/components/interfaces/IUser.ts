@@ -7,4 +7,5 @@ export interface IUser {
   address: string;
   position?: string;
   salary: number;
+  userType: number;
 }

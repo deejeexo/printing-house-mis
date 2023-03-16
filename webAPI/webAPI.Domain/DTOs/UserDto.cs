@@ -7,6 +7,9 @@ namespace webAPI.Domain.DTOs
 	public class UserDto
 	{
         [Required]
+        public required Guid Id { get; set; }
+
+        [Required]
         public required string Name { get; set; }
 
         [Required]
@@ -18,8 +21,7 @@ namespace webAPI.Domain.DTOs
         [Required]
         public required string Address { get; set; }
 
-        [Required]
-        public required UserType UserType { get; set; }
+        public UserType? UserType { get; set; }
 
         public Position? Position { get; set; }
 

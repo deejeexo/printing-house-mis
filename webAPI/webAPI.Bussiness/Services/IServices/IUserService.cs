@@ -15,6 +15,12 @@ namespace webAPI.Bussiness.Services.IServices
 
         Task<UserDto?> GetUser(Guid id);
 
+        Task<User> UpdateEmployee(UserDto userDto);
+
+        Task<User> TurnOffEmployeeAccount(TurnOffEmployeeAccountDto turnOffEmployeeAccountDto);
+
+        Task<IEnumerable<UserDto>> GetEmployees();
+
         void CreatePasswordHashSalt(string password, out byte[] passwordHash, out byte[] passwordSalt);
     }
 }

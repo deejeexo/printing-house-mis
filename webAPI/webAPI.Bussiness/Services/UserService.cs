@@ -91,6 +91,42 @@ namespace webAPI.Bussiness.Services
             if (user is not null) return _mapper.Map<UserDto>(user);
             return null;
         }
+
+        public async Task<IEnumerable<UserDto>> GetEmployees()
+        {
+            var employees = await _unitOfWork.User.GetAllAsync(user => user.UserType == UserType.Employee || user.UserType == UserType.Disabled);
+            return _mapper.Map<List<UserDto>>(employees);
+        }
+
+        public async Task<User> UpdateEmployee(UserDto userDto)
+        {
+            var userToUpdate = await _unitOfWork.User.GetAsync(user => user.Id == userDto.Id);
+            if (userToUpdate != null)
+            {
+                userToUpdate.Email = userDto.Email;
+                userToUpdate.Name = userDto.Name;
+                userToUpdate.PhoneNumber = userDto.PhoneNumber;
+                userToUpdate.Address = userDto.Address;
+                userToUpdate.Salary = userDto.Salary;
+                userToUpdate.Position = userDto.Position;
+                userToUpdate.UserType = UserType.Employee;
+                _unitOfWork.User.Update(userToUpdate);
+                await _unitOfWork.SaveAsync();
+            }
+            return userToUpdate!;
+        }
+
+        public async Task<User> TurnOffEmployeeAccount(TurnOffEmployeeAccountDto turnOffEmployeeAccountDto)
+        {
+            var userToUpdate = await _unitOfWork.User.GetAsync(user => user.Id == turnOffEmployeeAccountDto.Id);
+            if (userToUpdate != null)
+            {
+                userToUpdate.UserType = UserType.Disabled;
+                _unitOfWork.User.Update(userToUpdate);
+                await _unitOfWork.SaveAsync();
+            }
+            return userToUpdate!;
+        }
     }
 }
 

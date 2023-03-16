@@ -2,8 +2,10 @@
 {
 	public enum UserType
 	{
+		Empty,
 		Employee,
-		Client
+		Client,
+		Disabled
 	}
 }
 

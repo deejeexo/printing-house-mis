@@ -14,6 +14,7 @@ import { useRef, useState } from "react";
 import { IFileUploadReponse } from "../../components/interfaces/IFileUploadResponse";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import ErrorRoundedIcon from "@mui/icons-material/ErrorRounded";
+import { reloadPage } from "../../utils/reloadPage";
 
 function NewOrderPage() {
   const [fieldEroor, setFieldError] = useState<boolean>(false);
@@ -23,7 +24,6 @@ function NewOrderPage() {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(true);
   const [error, setError] = useState(false);
-  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
   const currentDate: Date = new Date();
 
   const handleCloseSnackBar = (
@@ -36,11 +36,6 @@ function NewOrderPage() {
 
     setOpen(false);
     setLoaded(false);
-  };
-
-  const reloadPage = async (time: number) => {
-    await delay(time);
-    window.location.reload();
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

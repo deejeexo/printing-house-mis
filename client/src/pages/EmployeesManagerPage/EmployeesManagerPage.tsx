@@ -1,11 +1,14 @@
 import { Button, Paper } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DataGridWindow from "../../components/DataGridWindow";
 import EmployeeFormDialog from "../../components/forms/EmployeeFormDialog";
 import { IFormDialogProps } from "../../components/interfaces/IFormDialogProps";
 import { IUser } from "../../components/interfaces/IUser";
 import { Positions } from "../../data/Positions";
+import { UserTypes } from "../../data/UserTypes";
+import { reloadPage } from "../../utils/reloadPage";
 
 function EmployeesManagerPage() {
   const initialFormDefaultValues: IUser = {
@@ -16,9 +19,11 @@ function EmployeesManagerPage() {
     address: "",
     position: "",
     salary: 0,
+    userType: 0,
   };
 
   const [open, setOpen] = useState(false);
+  const [rows, setRows] = useState<IUser[]>([]);
   const [formDefaultValues, setFormDefaultValues] = useState<IUser>(
     initialFormDefaultValues
   );
@@ -37,6 +42,7 @@ function EmployeesManagerPage() {
         address: selectedItem.address,
         position: selectedItem.position,
         salary: selectedItem.salary,
+        userType: selectedItem.userType,
       });
       setFormType("EditForm");
     } else {
@@ -48,6 +54,17 @@ function EmployeesManagerPage() {
   const resetFormValues = () => {
     setFormDefaultValues(initialFormDefaultValues);
   };
+
+  useEffect(() => {
+    axios.get<IUser[]>(`https://localhost:7198/user/employees`, {}).then(
+      (response) => {
+        setRows(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90, hide: true },
@@ -93,26 +110,17 @@ function EmployeesManagerPage() {
       width: 120,
       editable: false,
     },
-  ];
-
-  const rows: IUser[] = [
     {
-      id: "8a5ede07-11f4-4651-8ef3-44a5167cc542",
-      name: "Laurynas Maybachas",
-      email: "laurynas.maybachas@printhaus.com",
-      phoneNumber: "+37065476567",
-      address: "Kepyklos g. 17, LT-62117, Alytaus m. sav.",
-      position: "5",
-      salary: 500,
-    },
-    {
-      id: "8a5ede07-11f4-4651-8ef3-44a5167cg742",
-      name: "Elvinas Skukauskas",
-      email: "elvinas.skukauskas@printhaus.com",
-      phoneNumber: "+37065477267",
-      address: "Gintarės g. 17, LT-62117, Alytaus m. sav.",
-      position: "8",
-      salary: 480,
+      field: "userType",
+      headerName: "Paskyros būsena",
+      valueGetter: (params) => {
+        const userType = UserTypes.find(
+          (pos) => pos.value === Number(params.row.userType)
+        )?.label;
+        return userType || params.row.userType;
+      },
+      width: 300,
+      editable: false,
     },
   ];
 
@@ -150,6 +158,20 @@ function EmployeesManagerPage() {
         variant="contained"
         sx={{ mt: 1, mb: 1, ml: 1, textTransform: "none" }}
         disabled={formType === "EditForm" ? false : true}
+        onClick={async () => {
+          try {
+            await axios({
+              method: "post",
+              url: "https://localhost:7198/user/turn-off-employee-account",
+              data: {
+                id: formDefaultValues.id,
+              },
+            });
+            reloadPage(1000);
+          } catch (error) {
+            console.error(error);
+          }
+        }}
       >
         Išjungti paskyrą
       </Button>

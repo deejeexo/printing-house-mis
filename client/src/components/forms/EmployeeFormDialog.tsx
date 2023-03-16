@@ -13,9 +13,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import axios from "axios";
 import { MuiTelInput } from "mui-tel-input";
 import React, { useState } from "react";
 import { Positions } from "../../data/Positions";
+import { reloadPage } from "../../utils/reloadPage";
 import { IFormDialogProps } from "../interfaces/IFormDialogProps";
 import { IUser } from "../interfaces/IUser";
 
@@ -32,7 +34,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
     setPhone(newPhone);
   };
 
-  const handleNewSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleNewSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const email = data.get("email");
@@ -42,21 +44,33 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
     const address = data.get("address");
     const position = data.get("position");
     const salary = data.get("salary");
-    console.log(
-      email,
-      name,
-      password,
-      removeWhitespaces(phoneNumber),
-      address,
-      position,
-      salary
-    );
+    const positionValue = position ? parseInt(position as string) : 0;
+
+    data.delete("position");
+    try {
+      await axios({
+        method: "post",
+        url: "https://localhost:7198/user/register/register-employee",
+        data: {
+          name: name,
+          password: password,
+          email: email,
+          phoneNumber: removeWhitespaces(phoneNumber),
+          address: address,
+          salary: salary,
+          position: positionValue,
+        },
+      });
+      reloadPage(1000);
+    } catch (error) {
+      console.error(error);
+    }
     setPhone("");
     setPosition("");
     props.resetFormDefaultValues();
   };
 
-  const handleEditSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleEditSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const email = data.get("email");
@@ -65,14 +79,27 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
     const address = data.get("address");
     const position = data.get("position");
     const salary = data.get("salary");
-    console.log(
-      email,
-      name,
-      removeWhitespaces(phoneNumber),
-      address,
-      position,
-      salary
-    );
+    const positionValue = position ? parseInt(position as string) : 0;
+
+    data.delete("position");
+    try {
+      await axios({
+        method: "post",
+        url: "https://localhost:7198/user/update-employee",
+        data: {
+          id: props.formDefaultValues.id,
+          name: name,
+          email: email,
+          phoneNumber: removeWhitespaces(phoneNumber),
+          address: address,
+          salary: salary,
+          position: positionValue,
+        },
+      });
+      reloadPage(1000);
+    } catch (error) {
+      console.error(error);
+    }
     setPhone("");
     setPosition("");
     props.resetFormDefaultValues();

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using webAPI.Bussiness.Services;
 using webAPI.Bussiness.Services.IServices;
 using webAPI.Domain.DTOs;
 using webAPI.Domain.Models;
@@ -52,8 +53,25 @@ namespace webAPI.Controllers
             return Ok(result.Value);
         }
 
+        [HttpGet("employees")]
+        public async Task<ActionResult<IEnumerable<User>>> GetEmployees() => Ok(await _userService.GetEmployees());
+
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<User>> GetUser(Guid id) => Ok(await _userService.GetUser(id));
+
+        [HttpPost("update-employee")]
+        public async Task<ActionResult<User>> UpdateEmployee([FromBody] UserDto userDto)
+        {
+            var updatedEmployee = await _userService.UpdateEmployee(userDto);
+            return Ok();
+        }
+
+        [HttpPost("turn-off-employee-account")]
+        public async Task<ActionResult<User>> TurnOffEmployeeAccount([FromBody] TurnOffEmployeeAccountDto turnOffEmployeeAccountDto)
+        {
+            var turnedOffAccount = await _userService.TurnOffEmployeeAccount(turnOffEmployeeAccountDto);
+            return Ok();
+        }
     }
 }
 

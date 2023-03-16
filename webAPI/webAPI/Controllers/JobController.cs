@@ -29,7 +29,7 @@ namespace webAPI.Controllers
 		}
 
         [HttpGet("all")]
-        public async Task<ActionResult<IEnumerable<Job>>> GetAllReservations() => Ok(await _jobService.GetAllJobs());
+        public async Task<ActionResult<IEnumerable<Job>>> GetAllJobs() => Ok(await _jobService.GetAllJobs());
 
         [HttpPost("add-review")]
         public async Task<ActionResult<Job>> AddReview([FromBody] NewReviewDto newReviewDto)
