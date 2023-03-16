@@ -9,6 +9,8 @@ namespace webAPI.Bussiness.Services.IServices
     {
         Task<Result<Job>> CreateJob(JobDto jobdto);
 
+        Task<Job> AddReview(NewReviewDto newReviewDto);
+
         Task<IEnumerable<JobDto>> GetAllJobs();
     }
 }

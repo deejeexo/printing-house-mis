@@ -15,6 +15,8 @@ namespace webAPI.Bussiness.Profiles
             .ForMember(dest => dest.Id, from => from.MapFrom(q => Guid.NewGuid()))
             .ForMember(dest => dest.DateCreated, from => from.MapFrom(q => DateTime.Now))
             .ForMember(dest => dest.DateUpdated, from => from.MapFrom(q => DateTime.Now));
+
+            CreateMap<NewReviewDto, Job>();
         }
 	}
 }

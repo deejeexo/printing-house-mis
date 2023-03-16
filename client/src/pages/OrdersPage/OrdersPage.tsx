@@ -3,6 +3,7 @@ import { GridColDef } from "@mui/x-data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import DataGridWindow from "../../components/DataGridWindow";
+import NewReviewFormDialog from "../../components/forms/NewReviewFormDialog";
 import OrderViewFormDialog from "../../components/forms/OrderViewFormDialog";
 import { IFormDialogProps } from "../../components/interfaces/IFormDialogProps";
 import { IOrder } from "../../components/interfaces/IOrder";
@@ -17,9 +18,15 @@ function OrdersPage() {
     quantity: 0,
     jobStatus: 0,
     due: "",
+    rating: null,
+    feedback: null,
+    id: "",
   };
 
   const [open, setOpen] = useState(false);
+  const [openReview, setOpenReview] = useState(false);
+  const handleOpenReview = () => setOpenReview(true);
+  const handleCloseReview = () => setOpenReview(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [formDefaultValues, setFormDefaultValues] = useState<IOrder>(
@@ -32,6 +39,7 @@ function OrdersPage() {
   const handleListSelect = (selectedItem: IOrder) => {
     if (selectedItem !== undefined) {
       setFormDefaultValues({
+        id: selectedItem.id,
         customerId: selectedItem.customerId,
         name: selectedItem.name,
         description: selectedItem.description,
@@ -39,15 +47,19 @@ function OrdersPage() {
         quantity: selectedItem.quantity,
         jobStatus: selectedItem.jobStatus,
         due: selectedItem.due,
+        rating: selectedItem.rating,
+        feedback: selectedItem.feedback,
       });
       setFormType("ViewForm");
     } else {
       setFormType("NoPreference");
+      setFormDefaultValues(initialFormDefaultValues);
     }
   };
 
   const resetFormValues = () => {
     setFormDefaultValues(initialFormDefaultValues);
+    setFormType("NoPreference");
   };
 
   useEffect(() => {
@@ -133,6 +145,16 @@ function OrdersPage() {
       >
         Peržiūrėti užsakymo informaciją
       </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 1, mb: 1, ml: 1, textTransform: "none" }}
+        disabled={formDefaultValues.jobStatus === 15 ? false : true}
+        onClick={() => {
+          handleOpenReview();
+        }}
+      >
+        Pateikti atsiliepimą
+      </Button>
       <DataGridWindow
         columns={columns}
         rows={rows}
@@ -146,6 +168,14 @@ function OrdersPage() {
         resetFormDefaultValues={resetFormValues}
         formType={formType}
       ></OrderViewFormDialog>
+      <NewReviewFormDialog
+        handleOpen={handleOpenReview}
+        handleClose={handleCloseReview}
+        open={openReview}
+        formDefaultValues={formDefaultValues}
+        resetFormDefaultValues={resetFormValues}
+        formType={formType}
+      ></NewReviewFormDialog>
     </Paper>
   );
 }

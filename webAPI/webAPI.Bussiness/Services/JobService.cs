@@ -35,6 +35,19 @@ namespace webAPI.Bussiness.Services
 			var jobsDto = _mapper.Map<List<JobDto>>(jobs);
 			return jobsDto;
         }
+
+		public async Task<Job> AddReview(NewReviewDto newReviewDto)
+		{
+			var jobToEdit = await _unitOfWork.Job.GetAsync(job => job.Id == newReviewDto.Id);
+			if (jobToEdit != null)
+			{
+				jobToEdit.Feedback = newReviewDto.Feedback;
+				jobToEdit.Rating = newReviewDto.Rating;
+                _unitOfWork.Job.Update(jobToEdit);
+				await _unitOfWork.SaveAsync();
+            }
+			return jobToEdit!;
+		}
     }
 }
 

@@ -27,7 +27,10 @@ namespace webAPI.Domain.Models
         [Required]
         public required JobStatus JobStatus { get; set; }
 
-        [Required]
         public DateTime Due { get; set; }
+
+        public int? Rating { get; set; }
+
+        public string? Feedback { get; set; }
     }
 }

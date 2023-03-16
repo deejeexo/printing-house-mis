@@ -9,7 +9,7 @@ namespace webAPI.Domain.DTOs
 {
 	public class JobDto
 	{
-        public required Guid Id { get; set; }
+        public Guid Id { get; set; }
 
         public required Guid CustomerId { get; set; }
 
@@ -24,6 +24,10 @@ namespace webAPI.Domain.DTOs
         public required JobStatus JobStatus { get; set; }
 
         public DateTime Due { get; set; }
+
+        public int? Rating { get; set; }
+
+        public string? Feedback { get; set; }
     }
 }
 

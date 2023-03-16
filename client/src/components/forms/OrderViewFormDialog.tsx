@@ -94,7 +94,6 @@ function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
             <Button
               onClick={() => {
                 props.handleClose();
-                props.resetFormDefaultValues();
               }}
             >
               Uždaryti

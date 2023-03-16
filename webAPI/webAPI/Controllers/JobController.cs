@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using webAPI.Bussiness.Services.IServices;
 using webAPI.Domain.DTOs;
@@ -29,6 +30,13 @@ namespace webAPI.Controllers
 
         [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<Job>>> GetAllReservations() => Ok(await _jobService.GetAllJobs());
+
+        [HttpPost("add-review")]
+        public async Task<ActionResult<Job>> AddReview([FromBody] NewReviewDto newReviewDto)
+        {
+            var editedJob = await _jobService.AddReview(newReviewDto);
+            return Ok();
+        }
 
     }
 }
