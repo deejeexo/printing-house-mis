@@ -12,6 +12,8 @@ namespace webAPI.Bussiness.Services.IServices
         Task<Job> AddReview(NewReviewDto newReviewDto);
 
         Task<IEnumerable<JobDto>> GetAllJobs();
+
+        Task<IEnumerable<JobDto>> GetClientJobs(Guid id);
     }
 }
 

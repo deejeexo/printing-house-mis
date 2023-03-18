@@ -38,6 +38,8 @@ namespace webAPI.Controllers
             return Ok();
         }
 
+		[HttpGet("client-jobs/{userId:guid}")]
+        public async Task<ActionResult<IEnumerable<Job>>> GetAllListings(Guid userId) => Ok(await _jobService.GetClientJobs(userId));
     }
 }
 

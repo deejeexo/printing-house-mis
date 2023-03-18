@@ -61,7 +61,7 @@ function NewOrderPage() {
       return;
     }
 
-    const customerId = "ed520aeb-1aad-4149-9678-e09402ac359d";
+    const customerId = sessionStorage.getItem("userID");
     const name = filledFormData.get("name");
     const description = filledFormData.get("description");
     const fileUrl = fileUploadResponse.link;

@@ -48,6 +48,12 @@ namespace webAPI.Bussiness.Services
             }
 			return jobToEdit!;
 		}
+
+        public async Task<IEnumerable<JobDto>> GetClientJobs(Guid id)
+        {
+			var clientJobs = await _unitOfWork.Job.GetAllAsync(q => q.CustomerId == id);
+			return _mapper.Map<List<JobDto>>(clientJobs);
+        }
     }
 }
 

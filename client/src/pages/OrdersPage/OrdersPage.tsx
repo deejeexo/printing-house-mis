@@ -23,6 +23,7 @@ function OrdersPage() {
     id: "",
   };
 
+  const userID = sessionStorage.getItem("userID");
   const [open, setOpen] = useState(false);
   const [openReview, setOpenReview] = useState(false);
   const handleOpenReview = () => setOpenReview(true);
@@ -63,15 +64,17 @@ function OrdersPage() {
   };
 
   useEffect(() => {
-    axios.get<IOrder[]>(`https://localhost:7198/job/all`, {}).then(
-      (response) => {
-        setRows(response.data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }, []);
+    axios
+      .get<IOrder[]>(`https://localhost:7198/job/client-jobs/${userID}`, {})
+      .then(
+        (response) => {
+          setRows(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, [userID]);
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90, hide: true },
