@@ -3,8 +3,8 @@ export interface ITimeline {
 }
 
 export interface IItem {
-  orderNo: number;
-  date: string;
-  title: string;
-  content: string;
+  id: string;
+  dateCreated: string;
+  name: string;
+  description: string;
 }

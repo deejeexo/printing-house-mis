@@ -14,11 +14,14 @@ namespace webAPI.Infrastructure.Persistence.Repository
             this._db = db;
             User = new UserRepository(db);
             Job = new JobRepository(db);
+            News = new NewsRepository(db);
         }
 
         public IUserRepository User { get; set; }
 
         public IJobRepository Job { get; set; }
+
+        public INewsRepository News { get; set; }
 
         public void Save()
         {

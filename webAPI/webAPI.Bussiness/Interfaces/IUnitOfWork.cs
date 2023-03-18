@@ -10,6 +10,8 @@ namespace webAPI.Infrastructure.Persistence.Repository.IRepository
 
 		IJobRepository Job { get; set; }
 
+		INewsRepository News { get; set; }
+
 		void Save();
 
 		Task<int> SaveAsync();
