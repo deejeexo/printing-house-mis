@@ -1,21 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using webAPI.Domain.Enums;
-using webAPI.Domain.Models;
 
-namespace webAPI.Domain.Models
+namespace webAPI.Domain.DTOs
 {
-    public class Consumable : EntityBase
-    {
-        [Required]
+	public class ConsumableDto
+	{
+        public Guid? Id { get; set; }
+
         public required string Name { get; set; }
 
-        [Required]
         public required ConsumableType ConsumableType { get; set; }
 
-        [Required]
         public required int UnitPrice { get; set; }
 
-        [Required]
         public required int Quantity { get; set; }
     }
 }
+
