@@ -50,7 +50,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
     try {
       await axios({
         method: "post",
-        url: "https://localhost:7198/user/register/register-employee",
+        url: "https://localhost:7198/user/register-employee",
         data: {
           name: name,
           password: password,

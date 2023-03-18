@@ -19,7 +19,7 @@ namespace webAPI.Controllers
 			this._userService = userService;
 		}
 
-		[HttpPost("register/register-client")]
+		[HttpPost("register-client")]
 		public async Task<ActionResult<User>> RegisterClient([FromBody] RegisterClientDto registerDto)
 		{
 			var result = await _userService.RegisterClient(registerDto);
@@ -30,7 +30,7 @@ namespace webAPI.Controllers
             return Ok(result.Value);
 		}
 
-        [HttpPost("register/register-employee")]
+        [HttpPost("register-employee")]
         public async Task<ActionResult<User>> RegisterEmployee([FromBody] RegisterEmployeeDto registerDto)
         {
             var result = await _userService.RegisterEmployee(registerDto);
