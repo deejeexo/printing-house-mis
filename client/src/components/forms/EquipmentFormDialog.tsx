@@ -13,9 +13,11 @@ import {
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
+import axios from "axios";
 import { useState } from "react";
 import { Equipments } from "../../data/Equipments";
 import { EquipmentStatuses } from "../../data/EquipmentStatuses";
+import { reloadPage } from "../../utils/reloadPage";
 import { IEquipment } from "../interfaces/IEquipment";
 import { IFormDialogProps } from "../interfaces/IFormDialogProps";
 
@@ -32,13 +34,62 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
     setType(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleNewSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const name = data.get("name");
     const type = data.get("type");
     const status = data.get("status");
-    console.log(name, type, status);
+    const typeValue = type ? parseInt(type as string) : 0;
+    const statusValue = status ? parseInt(status as string) : 0;
+
+    data.delete("type");
+    data.delete("status");
+    try {
+      await axios({
+        method: "post",
+        url: "https://localhost:7198/equipment/add-equipment",
+        data: {
+          name: name,
+          type: typeValue,
+          status: statusValue,
+        },
+      });
+      reloadPage(1000);
+    } catch (error) {
+      console.error(error);
+    }
+    setStatus("");
+    setType("");
+    props.resetFormDefaultValues();
+  };
+
+  const handleEditSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = data.get("name");
+    const type = data.get("type");
+    const status = data.get("status");
+    const typeValue = type ? parseInt(type as string) : 0;
+    const statusValue = status ? parseInt(status as string) : 0;
+
+    data.delete("type");
+    data.delete("status");
+    try {
+      await axios({
+        method: "post",
+        url: "https://localhost:7198/equipment/edit-equipment",
+        data: {
+          id: props.formDefaultValues.id,
+          name: name,
+          type: typeValue,
+          status: statusValue,
+        },
+      });
+      reloadPage(1000);
+    } catch (error) {
+      console.error(error);
+    }
     setStatus("");
     setType("");
     props.resetFormDefaultValues();
@@ -47,7 +98,13 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
   return (
     <div>
       <Dialog open={props.open} onClose={props.handleClose}>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={
+            props.formType === "NewForm" ? handleNewSubmit : handleEditSubmit
+          }
+          sx={{ mt: 1 }}
+        >
           {props.formType === "NewForm" ? (
             <DialogTitle>Naujos įrangos pridėjimas</DialogTitle>
           ) : (

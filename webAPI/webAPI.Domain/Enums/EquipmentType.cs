@@ -2,6 +2,7 @@
 {
     public enum EquipmentType
     {
+        Empty,
         OffsetPress,
         DigitalPress,
         CuttingMachine,

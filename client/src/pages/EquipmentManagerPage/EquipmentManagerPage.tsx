@@ -1,6 +1,7 @@
 import { Button, Paper } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DataGridWindow from "../../components/DataGridWindow";
 import EquipmentFormDialog from "../../components/forms/EquipmentFormDialog";
 import { IEquipment } from "../../components/interfaces/IEquipment";
@@ -17,6 +18,7 @@ function EquipmentManagerPage() {
   };
 
   const [open, setOpen] = useState(false);
+  const [rows, setRows] = useState<IEquipment[]>([]);
   const [formDefaultValues, setFormDefaultValues] = useState<IEquipment>(
     initialFormDefaultValues
   );
@@ -78,14 +80,16 @@ function EquipmentManagerPage() {
     },
   ];
 
-  const rows: IEquipment[] = [
-    {
-      id: "8a5ede07-11f4-4651-8ef3-44a5167cg742",
-      name: "Ofsetinės spaudos mašina [1]",
-      type: "1",
-      status: "1",
-    },
-  ];
+  useEffect(() => {
+    axios.get<IEquipment[]>(`https://localhost:7198/equipment/all`, {}).then(
+      (response) => {
+        setRows(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   return (
     <Paper

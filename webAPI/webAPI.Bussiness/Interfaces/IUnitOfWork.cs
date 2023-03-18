@@ -12,6 +12,8 @@ namespace webAPI.Infrastructure.Persistence.Repository.IRepository
 
 		INewsRepository News { get; set; }
 
+		IEquipmentRepository Equipment { get; set; }
+
 		void Save();
 
 		Task<int> SaveAsync();

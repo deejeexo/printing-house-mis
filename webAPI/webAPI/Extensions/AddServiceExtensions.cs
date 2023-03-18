@@ -15,6 +15,7 @@ namespace webAPI.Extensions
 			services.AddScoped<IUserService, UserService>();
 			services.AddScoped<IJobService, JobService>();
 			services.AddScoped<INewsService, NewsService>();
+			services.AddScoped<IEquipmentService, EquipmentService>();
 		}
 
 		public static void AddRepository(this IServiceCollection services)

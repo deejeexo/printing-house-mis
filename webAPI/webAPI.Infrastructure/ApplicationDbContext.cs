@@ -4,8 +4,8 @@ using webAPI.Domain.Models;
 
 namespace webAPI.Infrastructure
 {
-	public class ApplicationDbContext: DbContext
-	{
+    public class ApplicationDbContext : DbContext
+    {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
@@ -13,6 +13,7 @@ namespace webAPI.Infrastructure
         public DbSet<User> Users { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Equipment> Equipment {get; set;}
     }
 }
 

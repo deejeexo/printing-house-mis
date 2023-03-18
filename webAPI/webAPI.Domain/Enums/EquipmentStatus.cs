@@ -3,6 +3,7 @@ namespace webAPI.Domain.Enums
 {
 	public enum EquipmentStatus
 	{
+        Empty,
         Active,
         Inactive,
         NeedMaintenance,
