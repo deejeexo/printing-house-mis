@@ -148,16 +148,20 @@ function OrdersPage() {
       >
         Peržiūrėti užsakymo informaciją
       </Button>
-      <Button
-        variant="contained"
-        sx={{ mt: 1, mb: 1, ml: 1, textTransform: "none" }}
-        disabled={formDefaultValues.jobStatus === 15 ? false : true}
-        onClick={() => {
-          handleOpenReview();
-        }}
-      >
-        Pateikti atsiliepimą
-      </Button>
+      {formDefaultValues.jobStatus === 15 && (
+        <Button
+          variant="contained"
+          sx={{ mt: 1, mb: 1, ml: 1, textTransform: "none" }}
+          disabled={formDefaultValues.jobStatus === 15 ? false : true}
+          onClick={() => {
+            handleOpenReview();
+          }}
+        >
+          {formDefaultValues.rating === null
+            ? "Pateikti atsiliepimą"
+            : "Peržiūrėti atsiliepimą"}
+        </Button>
+      )}
       <DataGridWindow
         columns={columns}
         rows={rows}

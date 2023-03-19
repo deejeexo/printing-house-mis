@@ -2,7 +2,7 @@ export interface IFormDialogProps<T> {
   handleClose: () => void;
   handleOpen: () => void;
   resetFormDefaultValues: () => void;
-  formType: "NoPreference" | "NewForm" | "EditForm" | "ViewForm";
+  formType: "NoPreference" | "NewForm" | "EditForm" | "ViewForm" | "DeleteForm";
   formDefaultValues: T;
   open: boolean;
 }

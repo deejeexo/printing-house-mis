@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import React from "react";
+import { reloadPage } from "../../utils/reloadPage";
 import { IFormDialogProps } from "../interfaces/IFormDialogProps";
 import { IOrder } from "../interfaces/IOrder";
 
@@ -34,6 +35,7 @@ function NewReviewFormDialog(props: IFormDialogProps<IOrder>) {
           feedback: feedback,
         },
       });
+      reloadPage(1000);
     } catch (error) {
       console.error(error);
     }

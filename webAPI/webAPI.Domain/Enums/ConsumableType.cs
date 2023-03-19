@@ -2,6 +2,7 @@
 {
     public enum ConsumableType
     {
+        Empty,
         Ink,
         Paper,
         Toner,
