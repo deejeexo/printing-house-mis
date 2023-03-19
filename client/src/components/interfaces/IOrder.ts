@@ -1,6 +1,7 @@
 export interface IOrder {
   id: string;
   customerId: string;
+  customerFullName?: string;
   name: string;
   description: string;
   fileUrl: string;

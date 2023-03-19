@@ -6,7 +6,7 @@ namespace webAPI.Domain.Models
     public class User : EntityBase
     {
         [Required]
-        public required string Name { get; set; }
+        public required string FullName { get; set; }
 
         public required byte[]? PasswordHash { get; set; }
 

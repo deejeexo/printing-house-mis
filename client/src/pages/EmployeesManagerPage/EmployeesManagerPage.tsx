@@ -13,7 +13,7 @@ import { reloadPage } from "../../utils/reloadPage";
 function EmployeesManagerPage() {
   const initialFormDefaultValues: IUser = {
     id: "",
-    name: "",
+    fullName: "",
     email: "",
     phoneNumber: "",
     address: "",
@@ -36,7 +36,7 @@ function EmployeesManagerPage() {
     if (selectedItem !== undefined) {
       setFormDefaultValues({
         id: selectedItem.id,
-        name: selectedItem.name,
+        fullName: selectedItem.fullName,
         email: selectedItem.email,
         phoneNumber: selectedItem.phoneNumber,
         address: selectedItem.address,
@@ -69,7 +69,7 @@ function EmployeesManagerPage() {
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90, hide: true },
     {
-      field: "name",
+      field: "fullName",
       headerName: "Vardas, pavardė",
       width: 200,
       editable: false,

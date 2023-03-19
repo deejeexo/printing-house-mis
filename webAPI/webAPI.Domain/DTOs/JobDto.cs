@@ -13,6 +13,8 @@ namespace webAPI.Domain.DTOs
 
         public required Guid CustomerId { get; set; }
 
+        public string? CustomerFullName { get; set; }
+
         public required string Name { get; set; }
 
         public required string Description { get; set; }

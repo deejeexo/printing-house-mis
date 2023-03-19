@@ -28,7 +28,7 @@ export default function SignupPage() {
     const data = new FormData(event.currentTarget);
     axios
       .post("https://localhost:7198/user/register-client", {
-        name: data.get("name"),
+        fullName: data.get("name"),
         password: data.get("password"),
         email: data.get("email"),
         phoneNumber: removeWhitespaces(phone),

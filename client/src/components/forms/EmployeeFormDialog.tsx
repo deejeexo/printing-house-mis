@@ -52,7 +52,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
         method: "post",
         url: "https://localhost:7198/user/register-employee",
         data: {
-          name: name,
+          fullName: name,
           password: password,
           email: email,
           phoneNumber: removeWhitespaces(phoneNumber),
@@ -88,7 +88,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
         url: "https://localhost:7198/user/update-employee",
         data: {
           id: props.formDefaultValues.id,
-          name: name,
+          fullName: name,
           email: email,
           phoneNumber: removeWhitespaces(phoneNumber),
           address: address,
@@ -160,7 +160,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               label="Darbuotojo vardas, pavardė"
               name="name"
               error={fieldEroor}
-              defaultValue={props.formDefaultValues.name}
+              defaultValue={props.formDefaultValues.fullName}
             />
             {props.formType === "NewForm" && (
               <TextField

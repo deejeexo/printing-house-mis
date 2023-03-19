@@ -10,7 +10,7 @@ namespace webAPI.Domain.DTOs
         public required Guid Id { get; set; }
 
         [Required]
-        public required string Name { get; set; }
+        public required string FullName { get; set; }
 
         [Required]
         public required string Email { get; set; }

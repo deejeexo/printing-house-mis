@@ -104,7 +104,7 @@ namespace webAPI.Bussiness.Services
             if (userToUpdate != null)
             {
                 userToUpdate.Email = userDto.Email;
-                userToUpdate.Name = userDto.Name;
+                userToUpdate.FullName = userDto.FullName;
                 userToUpdate.PhoneNumber = userDto.PhoneNumber;
                 userToUpdate.Address = userDto.Address;
                 userToUpdate.Salary = userDto.Salary;

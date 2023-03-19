@@ -31,7 +31,7 @@ namespace webAPI.Bussiness.Services
 
         public async Task<IEnumerable<JobDto>> GetAllJobs()
         {
-			var jobs = await _unitOfWork.Job.GetAllAsync();
+			var jobs = await _unitOfWork.Job.GetAllAsync(nameof(Job.User));
 			var jobsDto = _mapper.Map<List<JobDto>>(jobs);
 			return jobsDto;
         }

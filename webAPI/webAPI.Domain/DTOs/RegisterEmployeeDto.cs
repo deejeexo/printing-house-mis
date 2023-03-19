@@ -6,7 +6,7 @@ namespace webAPI.Domain.DTOs
 {
 	public class RegisterEmployeeDto
 	{
-        public required string Name { get; set; }
+        public required string FullName { get; set; }
 
         public string? Password { get; set; }
 

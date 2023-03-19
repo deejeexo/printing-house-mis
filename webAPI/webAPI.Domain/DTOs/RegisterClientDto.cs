@@ -7,7 +7,7 @@ namespace webAPI.Domain.DTOs
     public class RegisterClientDto
     {
         [Required]
-        public required string Name { get; set; }
+        public required string FullName { get; set; }
 
         [Required]
         public required string Password { get; set; }

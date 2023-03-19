@@ -9,7 +9,8 @@ namespace webAPI.Bussiness.Profiles
 	{
 		public JobProfile()
 		{
-            CreateMap<Job, JobDto>();
+            CreateMap<Job, JobDto>()
+                .ForMember(dest => dest.CustomerFullName, from => from.MapFrom(job => job.User!.FullName));
 
             CreateMap<JobDto, Job>()
             .ForMember(dest => dest.Id, from => from.MapFrom(q => Guid.NewGuid()))
