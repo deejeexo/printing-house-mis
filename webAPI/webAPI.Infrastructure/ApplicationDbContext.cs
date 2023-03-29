@@ -15,6 +15,8 @@ namespace webAPI.Infrastructure
         public DbSet<News> News { get; set; }
         public DbSet<Equipment> Equipment {get; set;}
         public DbSet<Consumable> Consumables { get; set; }
+        public DbSet<JobEquipment> JobEquipments { get; set; }
+        public DbSet<JobConsumable> JobConsumables { get; set; }
     }
 }
 

@@ -16,6 +16,10 @@ namespace webAPI.Infrastructure.Persistence.Repository.IRepository
 
 		IConsumableRepository Consumable { get; set; }
 
+		IJobEquipmentRepository JobEquipment { get; set; }
+
+		IJobConsumableRepository JobConsumable { get; set; }
+
 		void Save();
 
 		Task<int> SaveAsync();

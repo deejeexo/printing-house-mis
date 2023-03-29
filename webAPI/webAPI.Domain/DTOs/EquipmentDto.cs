@@ -12,6 +12,8 @@ namespace webAPI.Domain.DTOs
         public required EquipmentType Type { get; set; }
 
         public required EquipmentStatus Status { get; set; }
+
+        public required int CostPerHour { get; set; }
     }
 }
 

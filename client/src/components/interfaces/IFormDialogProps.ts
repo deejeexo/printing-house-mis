@@ -11,4 +11,5 @@ export interface IFormDialogProps<T> {
     | "Manage";
   formDefaultValues: T;
   open: boolean;
+  jobId?: string;
 }

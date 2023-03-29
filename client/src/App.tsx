@@ -12,6 +12,7 @@ import OrdersPage from "./pages/OrdersPage/OrdersPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import UserSettingsPage from "./pages/UserSettingsPage/UserSettingsPage";
 import OrdersManagerPage from "./pages/OrdersManagerPage/OrdersManagerPage";
+import SelectedOrderManager from "./pages/SelectedOrderManager/SelectedOrderManager";
 
 function App() {
   return (
@@ -59,7 +60,7 @@ function App() {
           element={
             <Paperbase
               content={<EmployeesManagerPage />}
-              header={"Darbuotojų valdymas"}
+              header={"Naudotojų valdymas"}
             ></Paperbase>
           }
         />
@@ -87,6 +88,15 @@ function App() {
             <Paperbase
               content={<OrdersManagerPage />}
               header={"Užsakymų valdymas"}
+            ></Paperbase>
+          }
+        />
+        <Route
+          path="/ordersmanager/:orderId"
+          element={
+            <Paperbase
+              content={<SelectedOrderManager />}
+              header={"Užsakymo valdymas"}
             ></Paperbase>
           }
         />

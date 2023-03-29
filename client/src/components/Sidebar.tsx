@@ -26,6 +26,7 @@ function Sidebar(props: DrawerProps) {
   const [categories, setCategories] = useState<ISidebarCategories[]>([]);
 
   useEffect(() => {
+    const position = sessionStorage.getItem("position");
     setCategories([
       {
         id: "Pagrindinis meniu",
@@ -35,7 +36,7 @@ function Sidebar(props: DrawerProps) {
             icon: <NewspaperRoundedIcon />,
             active: true,
             navigateTo: "/news",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
         ],
       },
@@ -47,14 +48,14 @@ function Sidebar(props: DrawerProps) {
             icon: <AddBoxRoundedIcon />,
             active: false,
             navigateTo: "/neworder",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
           {
             id: "Mano užsakymai",
             icon: <ReorderRoundedIcon />,
             active: false,
             navigateTo: "/orders",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
         ],
       },
@@ -62,32 +63,33 @@ function Sidebar(props: DrawerProps) {
         id: "Verslo valdymas",
         children: [
           {
-            id: "Užsakymų valdymas",
+            id:
+              position === "1" ? "Užsakymų valdymas" : "Mano kuruojami darbai",
             icon: <BorderColorRoundedIcon />,
             active: false,
             navigateTo: "/ordersmanager",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
           {
-            id: "Darbuotojų valdymas",
+            id: "Naudotojų valdymas",
             icon: <PeopleAltRoundedIcon />,
             active: false,
             navigateTo: "/employeesmanager",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
           {
             id: "Įrangos valdymas",
             icon: <LocalPrintshopRoundedIcon />,
             active: false,
             navigateTo: "/equipmentmanager",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
           {
             id: "Eksploatacinės medžiagos",
             icon: <ConstructionRoundedIcon />,
             active: false,
             navigateTo: "/consumablemanager",
-            allowedCategories: [0, 1],
+            allowedCategories: [0, 1, 5],
           },
         ],
       },

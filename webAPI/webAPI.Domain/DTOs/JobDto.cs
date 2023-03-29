@@ -15,6 +15,8 @@ namespace webAPI.Domain.DTOs
 
         public string? CustomerFullName { get; set; }
 
+        public Guid? Curator { get; set; }
+
         public required string Name { get; set; }
 
         public required string Description { get; set; }

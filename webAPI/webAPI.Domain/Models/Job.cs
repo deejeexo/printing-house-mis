@@ -12,6 +12,8 @@ namespace webAPI.Domain.Models
         [ForeignKey ("CustomerId")]
         public User? User { get; set; }
 
+        public Guid? Curator { get; set; }
+
         [Required]
         public required string Name { get; set; }
 

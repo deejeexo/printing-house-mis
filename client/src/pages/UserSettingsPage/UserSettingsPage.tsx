@@ -4,7 +4,7 @@ function UserSettingsPage() {
   return (
     <Paper
       sx={{
-        maxWidth: 1400,
+        maxWidth: 1500,
         margin: "auto",
         overflow: "hidden",
         backgroundColor: "#e0e8eb",

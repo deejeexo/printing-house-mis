@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace webAPI.Domain.Models
 {
@@ -7,10 +8,11 @@ namespace webAPI.Domain.Models
         [Required]
         public required Guid JobId { get; set; }
 
+        [ForeignKey("JobId")]
         public Job? Job { get; set; }
 
         [Required]
-        public required int EquipmentId { get; set; }
+        public required Guid EquipmentId { get; set; }
 
         public Equipment? Equipment { get; set; }
 

@@ -3,4 +3,5 @@ export interface IEquipment {
   name: string;
   type: string;
   status: string;
+  costPerHour: number;
 }

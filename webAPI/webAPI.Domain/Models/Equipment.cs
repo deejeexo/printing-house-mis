@@ -13,5 +13,8 @@ namespace webAPI.Domain.Models
 
         [Required]
         public required EquipmentStatus Status { get; set; }
+
+        [Required]
+        public required int CostPerHour { get; set; }
     }
 }

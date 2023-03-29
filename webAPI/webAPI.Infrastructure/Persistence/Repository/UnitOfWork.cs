@@ -17,6 +17,9 @@ namespace webAPI.Infrastructure.Persistence.Repository
             News = new NewsRepository(db);
             Equipment = new EquipmentRepository(db);
             Consumable = new ConsumableRepository(db);
+            JobEquipment = new JobEquipmentRepository(db);
+            JobConsumable = new JobConsumableRepository(db);
+
         }
 
         public IUserRepository User { get; set; }
@@ -28,6 +31,10 @@ namespace webAPI.Infrastructure.Persistence.Repository
         public IEquipmentRepository Equipment { get; set; }
 
         public IConsumableRepository Consumable { get; set; }
+
+        public IJobEquipmentRepository JobEquipment { get; set; }
+
+        public IJobConsumableRepository JobConsumable { get; set; }
 
         public void Save()
         {

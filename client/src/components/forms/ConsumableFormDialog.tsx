@@ -142,7 +142,7 @@ function ConsumableFormDialog(props: IFormDialogProps<IConsumable>) {
               type="number"
               fullWidth
               id="unitPrice"
-              label="Kaina (vnt.) €"
+              label="Kaina (vnt.) [€]"
               name="unitPrice"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.unitPrice}

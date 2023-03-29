@@ -10,4 +10,5 @@ export interface IOrder {
   due: string;
   rating: number | null;
   feedback: string | null;
+  curator: string | null;
 }

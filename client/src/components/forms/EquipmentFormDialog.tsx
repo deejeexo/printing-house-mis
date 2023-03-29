@@ -40,6 +40,7 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
     const name = data.get("name");
     const type = data.get("type");
     const status = data.get("status");
+    const costPerHour = data.get("costPerHour");
     const typeValue = type ? parseInt(type as string) : 0;
     const statusValue = status ? parseInt(status as string) : 0;
 
@@ -53,6 +54,7 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
           name: name,
           type: typeValue,
           status: statusValue,
+          costPerHour: costPerHour,
         },
       });
       reloadPage(1000);
@@ -70,6 +72,7 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
     const name = data.get("name");
     const type = data.get("type");
     const status = data.get("status");
+    const costPerHour = data.get("costPerHour");
     const typeValue = type ? parseInt(type as string) : 0;
     const statusValue = status ? parseInt(status as string) : 0;
 
@@ -84,6 +87,7 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
           name: name,
           type: typeValue,
           status: statusValue,
+          costPerHour: costPerHour,
         },
       });
       reloadPage(1000);
@@ -133,6 +137,19 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
               name="name"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.name}
+            />
+            <TextField
+              sx={{ marginBottom: 3 }}
+              onFocus={() => {
+                setFieldError(false);
+              }}
+              type="number"
+              fullWidth
+              id="costPerHour"
+              label="Valandos kaina [€]"
+              name="costPerHour"
+              error={fieldEroor}
+              defaultValue={props.formDefaultValues.costPerHour}
             />
             <FormControl fullWidth>
               <InputLabel id="type">Tipas</InputLabel>

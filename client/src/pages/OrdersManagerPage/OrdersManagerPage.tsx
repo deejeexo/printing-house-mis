@@ -2,18 +2,51 @@ import { Button, Paper } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DataGridWindow from "../../components/DataGridWindow";
 import { IFormDialogProps } from "../../components/interfaces/IFormDialogProps";
 import { IOrder } from "../../components/interfaces/IOrder";
 import { JobStatuses } from "../../data/JobStatuses";
 
 function OrdersManagerPage() {
+  const navigate = useNavigate();
+  const initialFormDefaultValues: IOrder = {
+    customerId: "",
+    name: "",
+    description: "",
+    fileUrl: "",
+    quantity: 0,
+    jobStatus: 0,
+    due: "",
+    rating: null,
+    feedback: null,
+    id: "",
+    curator: "",
+  };
+
+  const [formDefaultValues, setFormDefaultValues] = useState<IOrder>(
+    initialFormDefaultValues
+  );
   const [formType, setFormType] =
     useState<IFormDialogProps<IOrder>["formType"]>("NewForm");
   const [rows, setRows] = useState<IOrder[]>([]);
 
   const handleListSelect = (selectedItem: IOrder) => {
     if (selectedItem !== undefined) {
+      setFormDefaultValues({
+        id: selectedItem.id,
+        customerId: selectedItem.customerId,
+        customerFullName: selectedItem.customerFullName,
+        name: selectedItem.name,
+        description: selectedItem.description,
+        fileUrl: selectedItem.fileUrl,
+        quantity: selectedItem.quantity,
+        jobStatus: selectedItem.jobStatus,
+        due: selectedItem.due,
+        rating: selectedItem.rating,
+        feedback: selectedItem.feedback,
+        curator: selectedItem.curator,
+      });
       setFormType("Manage");
     } else {
       setFormType("NoPreference");
@@ -21,7 +54,13 @@ function OrdersManagerPage() {
   };
 
   useEffect(() => {
-    axios.get<IOrder[]>(`https://localhost:7198/job/all`, {}).then(
+    const position = sessionStorage.getItem("position");
+    const userID = sessionStorage.getItem("userID");
+    const url =
+      position === "1"
+        ? "https://localhost:7198/job/all"
+        : `https://localhost:7198/job/curator-jobs/${userID}`;
+    axios.get<IOrder[]>(url, {}).then(
       (response) => {
         setRows(response.data);
       },
@@ -103,7 +142,11 @@ function OrdersManagerPage() {
         variant="contained"
         sx={{ mt: 1, mb: 1, ml: 1, textTransform: "none" }}
         disabled={formType === "Manage" ? false : true}
-        onClick={() => {}}
+        onClick={() => {
+          navigate(`/ordersmanager/${formDefaultValues.id}`, {
+            state: formDefaultValues,
+          });
+        }}
       >
         Valdyti užsakymą
       </Button>

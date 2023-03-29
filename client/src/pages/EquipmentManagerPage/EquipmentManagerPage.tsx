@@ -15,6 +15,7 @@ function EquipmentManagerPage() {
     name: "",
     type: "",
     status: "",
+    costPerHour: 0,
   };
 
   const [open, setOpen] = useState(false);
@@ -34,6 +35,7 @@ function EquipmentManagerPage() {
         name: selectedItem.name,
         type: selectedItem.type,
         status: selectedItem.status,
+        costPerHour: selectedItem.costPerHour,
       });
       setFormType("EditForm");
     } else {
@@ -75,6 +77,12 @@ function EquipmentManagerPage() {
         )?.label;
         return equipmentStatusLabel || params.row.status;
       },
+      width: 400,
+      editable: false,
+    },
+    {
+      field: "costPerHour",
+      headerName: "Valandos kaina",
       width: 400,
       editable: false,
     },

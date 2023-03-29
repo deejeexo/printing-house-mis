@@ -35,6 +35,7 @@ namespace webAPI.Bussiness.Services
                 equipmentToEdit.Name = equipmentDto.Name;
                 equipmentToEdit.Status = equipmentDto.Status;
                 equipmentToEdit.Type = equipmentDto.Type;
+                equipmentToEdit.CostPerHour = equipmentDto.CostPerHour;
                 _unitOfWork.Equipment.Update(equipmentToEdit);
                 await _unitOfWork.SaveAsync();
             }

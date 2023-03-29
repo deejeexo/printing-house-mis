@@ -70,7 +70,7 @@ function ConsumableManagerPage() {
     },
     {
       field: "unitPrice",
-      headerName: "Kaina (vnt.) €",
+      headerName: "Kaina (vnt.) [€]",
       width: 400,
       editable: false,
     },

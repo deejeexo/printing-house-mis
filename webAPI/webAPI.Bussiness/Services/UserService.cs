@@ -55,7 +55,7 @@ namespace webAPI.Bussiness.Services
                 return new Result<User>(new ValidationException(_registerEmployeeValidator.Errors));
 
             var registerUserDto = _mapper.Map<RegisterEmployeeDto>(registerEmployeeDto);
-            CreatePasswordHashSalt(registerUserDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
+            CreatePasswordHashSalt(registerUserDto.Password!, out byte[] passwordHash, out byte[] passwordSalt);
             var userCreated = _mapper.Map<User>(registerUserDto);
             userCreated.PasswordHash = passwordHash;
             userCreated.PasswordSalt = passwordSalt;

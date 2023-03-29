@@ -21,6 +21,7 @@ function OrdersPage() {
     rating: null,
     feedback: null,
     id: "",
+    curator: "",
   };
 
   const userID = sessionStorage.getItem("userID");
@@ -50,6 +51,7 @@ function OrdersPage() {
         due: selectedItem.due,
         rating: selectedItem.rating,
         feedback: selectedItem.feedback,
+        curator: selectedItem.curator,
       });
       setFormType("ViewForm");
     } else {
