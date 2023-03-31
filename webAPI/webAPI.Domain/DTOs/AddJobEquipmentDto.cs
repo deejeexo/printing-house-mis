@@ -17,7 +17,7 @@ namespace webAPI.Domain.DTOs
 
         public EquipmentType? EquipmentType { get; set; }
 
-		public int CostPerHour { get; set; }
+		public decimal CostPerHour { get; set; }
     }
 }
 

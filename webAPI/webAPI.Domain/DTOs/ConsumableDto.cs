@@ -12,7 +12,7 @@ namespace webAPI.Domain.DTOs
 
         public required ConsumableType ConsumableType { get; set; }
 
-        public required int UnitPrice { get; set; }
+        public required decimal UnitPrice { get; set; }
 
         public required int Quantity { get; set; }
     }

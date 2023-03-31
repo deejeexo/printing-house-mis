@@ -22,6 +22,7 @@ function OrdersManagerPage() {
     feedback: null,
     id: "",
     curator: "",
+    jobPrice: 0,
   };
 
   const [formDefaultValues, setFormDefaultValues] = useState<IOrder>(
@@ -46,6 +47,7 @@ function OrdersManagerPage() {
         rating: selectedItem.rating,
         feedback: selectedItem.feedback,
         curator: selectedItem.curator,
+        jobPrice: selectedItem.jobPrice,
       });
       setFormType("Manage");
     } else {
@@ -96,12 +98,45 @@ function OrdersManagerPage() {
       headerName: "Užsakymo failas",
       width: 400,
       editable: false,
+      renderCell: (params) => {
+        const url = params.row.fileUrl;
+        return url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "blue" }}
+          >
+            {url}
+          </a>
+        ) : null;
+      },
+      valueGetter: (params) => {
+        const url = params.row.fileUrl;
+        if (url === "") {
+          return "Užsakymo failas nepateiktas";
+        }
+        return url;
+      },
     },
     {
       field: "quantity",
       headerName: "Kiekis",
       width: 400,
       editable: false,
+    },
+    {
+      field: "jobPrice",
+      headerName: "Užsakymo kaina [€]",
+      width: 400,
+      editable: false,
+      valueGetter: (params) => {
+        const jobPrice = params.row.jobPrice;
+        if (jobPrice === 0) {
+          return "Laukiamas kuratoriaus patvirtinimas";
+        }
+        return jobPrice;
+      },
     },
     {
       field: "jobStatus",

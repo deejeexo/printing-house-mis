@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using webAPI.Domain.Enums;
 
 namespace webAPI.Domain.Models
@@ -15,6 +16,7 @@ namespace webAPI.Domain.Models
         public required EquipmentStatus Status { get; set; }
 
         [Required]
-        public required int CostPerHour { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
+        public required decimal CostPerHour { get; set; }
     }
 }

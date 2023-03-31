@@ -13,7 +13,7 @@ namespace webAPI.Domain.DTOs
 
         public required EquipmentStatus Status { get; set; }
 
-        public required int CostPerHour { get; set; }
+        public required decimal CostPerHour { get; set; }
     }
 }
 

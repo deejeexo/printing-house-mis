@@ -11,10 +11,12 @@ import StatusUpdateFormDialog from "./forms/StatusUpdateFormDialog";
 import { IFormDialogProps } from "./interfaces/IFormDialogProps";
 import { IOrder } from "./interfaces/IOrder";
 import { IUser } from "./interfaces/IUser";
+import { IJobPrice } from "./interfaces/IJobPrice";
 
 const ProductCard = (props: IOrder) => {
   const initialFormDefaultValues: IUser[] = [];
   const [open, setOpen] = useState(false);
+  const [jobPrice, setJobPrice] = useState<IJobPrice>({ jobPrice: 0 });
   const [statusChangeOpen, setStatusChangeOpen] = useState(false);
   const [formDefaultValues, setFormDefaultValues] = useState<IUser[]>(
     initialFormDefaultValues
@@ -34,6 +36,20 @@ const ProductCard = (props: IOrder) => {
     salary: 0,
     userType: 0,
   });
+
+  function formatCurrency(
+    value: number,
+    currency: string = "EUR",
+    locale: string = "lt-LT"
+  ): string {
+    const formatter = new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 2,
+    });
+
+    return formatter.format(value);
+  }
 
   const resetFormValues = () => {
     setFormDefaultValues(initialFormDefaultValues);
@@ -57,7 +73,18 @@ const ProductCard = (props: IOrder) => {
         console.log(error);
       }
     );
-  }, [props.curator]);
+
+    axios
+      .get<IJobPrice>(`https://localhost:7198/job/job-price/${props.id}`, {})
+      .then(
+        (response) => {
+          setJobPrice(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, [props.curator, props.id]);
 
   return (
     <>
@@ -103,6 +130,12 @@ const ProductCard = (props: IOrder) => {
             {props.curator !== null
               ? `Užsakymo kuratorius: ${curator.fullName}`
               : `Užsakymo kuratorius: Nepriskirtas`}
+          </Typography>
+          <Typography variant="h6">
+            Užsakymo kaina:{" "}
+            {jobPrice.jobPrice === 0
+              ? "Laukiamas kuratoriaus patvirtinimas"
+              : formatCurrency(jobPrice.jobPrice)}
           </Typography>
           <CardActions
             sx={{

@@ -146,6 +146,10 @@ function ConsumableFormDialog(props: IFormDialogProps<IConsumable>) {
               name="unitPrice"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.unitPrice}
+              inputProps={{
+                step: "any",
+                pattern: "\\d*(\\.\\d{0,2})?",
+              }}
             />
             <TextField
               sx={{ marginBottom: 3 }}

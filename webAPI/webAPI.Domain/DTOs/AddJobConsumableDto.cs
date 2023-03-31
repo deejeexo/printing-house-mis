@@ -17,7 +17,7 @@ namespace webAPI.Domain.DTOs
 
         public ConsumableType? ConsumableType { get; set; }
 
-        public int UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
     }
 }
 

@@ -32,6 +32,8 @@ namespace webAPI.Domain.DTOs
         public int? Rating { get; set; }
 
         public string? Feedback { get; set; }
+
+        public decimal? JobPrice { get; set; }
     }
 }
 

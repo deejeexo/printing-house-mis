@@ -34,6 +34,8 @@ namespace webAPI.Bussiness.Services.IServices
         Task<JobConsumable> DeleteJobConsumable(Guid consumableId);
 
         Task<JobEquipment> DeleteJobEquipment(Guid consumableId);
+
+        Task<JobPriceDto> GetJobPrice(Guid jobId);
     }
 }
 

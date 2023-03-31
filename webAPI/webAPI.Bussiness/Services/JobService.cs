@@ -33,7 +33,14 @@ namespace webAPI.Bussiness.Services
         {
 			var jobs = await _unitOfWork.Job.GetAllAsync(nameof(Job.User));
 			var jobsDto = _mapper.Map<List<JobDto>>(jobs);
-			return jobsDto;
+
+            foreach (var job in jobsDto)
+            {
+                var jobPrice = await GetJobPrice(job.Id);
+                job.JobPrice = jobPrice.JobPrice;
+            }
+
+            return jobsDto;
         }
 
 		public async Task<Job> AddReview(NewReviewDto newReviewDto)
@@ -52,19 +59,44 @@ namespace webAPI.Bussiness.Services
         public async Task<IEnumerable<JobDto>> GetClientJobs(Guid id)
         {
 			var clientJobs = await _unitOfWork.Job.GetAllAsync(q => q.CustomerId == id);
-			return _mapper.Map<List<JobDto>>(clientJobs);
+            var jobs =_mapper.Map<List<JobDto>>(clientJobs);
+
+            foreach (var job in jobs)
+            {
+                var jobPrice = await GetJobPrice(job.Id);
+                job.JobPrice = jobPrice.JobPrice;
+            }
+
+            return jobs;
         }
 
         public async Task<IEnumerable<JobDto>> GetCuratorJobs(Guid id)
         {
             var curatorJobs = await _unitOfWork.Job.GetAllAsync(q => q.Curator == id, nameof(Job.User));
-            return _mapper.Map<List<JobDto>>(curatorJobs);
+            var jobs = _mapper.Map<List<JobDto>>(curatorJobs);
+
+            foreach (var job in jobs)
+            {
+                var jobPrice = await GetJobPrice(job.Id);
+                job.JobPrice = jobPrice.JobPrice;
+            }
+
+            return jobs;
         }
 
         public async Task<JobDto> GetJob(Guid id)
         {
             var job = await _unitOfWork.Job.GetAsync(job => job.Id == id, nameof(Job.User));
-            return _mapper.Map<JobDto>(job);
+            var jobDto = _mapper.Map<JobDto>(job);
+
+            if (job is not null)
+            {
+                var jobPrice = await GetJobPrice(job.Id);
+                jobDto.JobPrice = jobPrice.JobPrice;
+            }
+
+
+            return jobDto;
         }
 
         public async Task<Job> AddCurator(AddCuratorDto addCuratorDto)
@@ -152,6 +184,37 @@ namespace webAPI.Bussiness.Services
             }
 
             return equipmentToDelete!;
+        }
+
+        public async Task<JobPriceDto> GetJobPrice(Guid jobId)
+        {
+            decimal totalCost = 0;
+
+            var jobEquipments = await GetJobEquipments(jobId);
+            var jobConsumables = await GetJobConsumables(jobId);
+
+            foreach (var equipment in jobEquipments)
+            {
+                totalCost += equipment.Hours * equipment.CostPerHour;
+            }
+
+            foreach (var consumable in jobConsumables)
+            {
+                totalCost += consumable.QuantityUsed * consumable.UnitPrice;
+            }
+
+            decimal employeeTax = totalCost * 0.12m;
+
+            totalCost += employeeTax;
+
+            totalCost = Math.Truncate(totalCost * 100) / 100;
+
+            JobPriceDto jobPriceDto = new JobPriceDto
+            {
+                JobPrice = totalCost
+            };
+
+            return jobPriceDto;
         }
     }
 }

@@ -105,6 +105,9 @@ namespace webAPI.Controllers
             await _jobService.DeleteJobEquipment(id);
             return Ok("Equipment deleted successfully");
         }
+
+        [HttpGet("job-price/{jobId:guid}")]
+        public async Task<ActionResult<JobPriceDto>> GetJobPrice(Guid jobId) => Ok(await _jobService.GetJobPrice(jobId));
     }
 }
 

@@ -150,6 +150,10 @@ function EquipmentFormDialog(props: IFormDialogProps<IEquipment>) {
               name="costPerHour"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.costPerHour}
+              inputProps={{
+                step: "any",
+                pattern: "\\d*(\\.\\d{0,2})?",
+              }}
             />
             <FormControl fullWidth>
               <InputLabel id="type">Tipas</InputLabel>
