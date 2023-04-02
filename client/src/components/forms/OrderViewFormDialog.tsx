@@ -15,6 +15,7 @@ import {
 import { JobStatuses } from "../../data/JobStatuses";
 import { IFormDialogProps } from "../interfaces/IFormDialogProps";
 import { IOrder } from "../interfaces/IOrder";
+import { createInvoicePdf } from "../../utils/createInvoicePdf";
 
 function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
   return (
@@ -88,6 +89,22 @@ function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
               target="_blank"
             >
               Atsisiųsti užsakymo failą
+            </Button>
+            <Button
+              onClick={() => {
+                createInvoicePdf(props.formDefaultValues.id);
+              }}
+              variant="contained"
+              sx={{
+                display: [13, 14, 15].includes(
+                  props.formDefaultValues.jobStatus
+                )
+                  ? "block"
+                  : "none",
+                mt: 2,
+              }}
+            >
+              Atsisiųsti sąskaitos faktūrą
             </Button>
           </DialogContent>
           <DialogActions>

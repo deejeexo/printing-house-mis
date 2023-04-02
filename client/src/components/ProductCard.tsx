@@ -12,6 +12,7 @@ import { IFormDialogProps } from "./interfaces/IFormDialogProps";
 import { IOrder } from "./interfaces/IOrder";
 import { IUser } from "./interfaces/IUser";
 import { IJobPrice } from "./interfaces/IJobPrice";
+import { createInvoicePdf } from "../utils/createInvoicePdf";
 
 const ProductCard = (props: IOrder) => {
   const initialFormDefaultValues: IUser[] = [];
@@ -162,6 +163,19 @@ const ProductCard = (props: IOrder) => {
               sx={{ display: position === "1" ? "block" : "none" }}
             >
               Priskirti atsakingą darbuotoją
+            </Button>
+            <Button
+              onClick={() => {
+                createInvoicePdf(props.id);
+              }}
+              variant="contained"
+              sx={{
+                display: [13, 14, 15].includes(props.jobStatus)
+                  ? "block"
+                  : "none",
+              }}
+            >
+              Sugeneruoti sąskaitos faktūrą
             </Button>
             <Button
               variant="contained"
