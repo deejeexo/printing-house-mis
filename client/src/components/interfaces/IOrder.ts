@@ -11,5 +11,6 @@ export interface IOrder {
   rating: number | null;
   feedback: string | null;
   curator: string | null;
+  deliveryMethod: number;
   jobPrice: number | 0;
 }

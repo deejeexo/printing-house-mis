@@ -27,6 +27,9 @@ namespace webAPI.Domain.Models
         public required int Quantity { get; set; }
 
         [Required]
+        public required DeliveryMethod DeliveryMethod { get; set; }
+
+        [Required]
         public required JobStatus JobStatus { get; set; }
 
         public DateTime Due { get; set; }

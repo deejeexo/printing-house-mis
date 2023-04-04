@@ -8,6 +8,7 @@ import OrderViewFormDialog from "../../components/forms/OrderViewFormDialog";
 import { IFormDialogProps } from "../../components/interfaces/IFormDialogProps";
 import { IOrder } from "../../components/interfaces/IOrder";
 import { JobStatuses } from "../../data/JobStatuses";
+import { DeliveryMethods } from "../../data/DeliveryMethods";
 
 function OrdersPage() {
   const initialFormDefaultValues: IOrder = {
@@ -23,6 +24,7 @@ function OrdersPage() {
     id: "",
     curator: "",
     jobPrice: 0,
+    deliveryMethod: 0,
   };
 
   const userID = sessionStorage.getItem("userID");
@@ -54,6 +56,7 @@ function OrdersPage() {
         feedback: selectedItem.feedback,
         curator: selectedItem.curator,
         jobPrice: selectedItem.jobPrice,
+        deliveryMethod: selectedItem.deliveryMethod,
       });
       setFormType("ViewForm");
     } else {
@@ -124,6 +127,18 @@ function OrdersPage() {
     {
       field: "quantity",
       headerName: "Kiekis",
+      width: 400,
+      editable: false,
+    },
+    {
+      field: "deliveryMethod",
+      headerName: "Pristatymo būdas",
+      valueGetter: (params) => {
+        const deliveryMethodLabel = DeliveryMethods.find(
+          (pos) => pos.value === Number(params.row.deliveryMethod)
+        )?.label;
+        return deliveryMethodLabel || params.row.deliveryMethod;
+      },
       width: 400,
       editable: false,
     },

@@ -27,6 +27,8 @@ namespace webAPI.Domain.DTOs
 
         public required JobStatus JobStatus { get; set; }
 
+        public required DeliveryMethod DeliveryMethod { get; set; }
+
         public DateTime Due { get; set; }
 
         public int? Rating { get; set; }

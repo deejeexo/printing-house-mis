@@ -16,6 +16,7 @@ import { JobStatuses } from "../../data/JobStatuses";
 import { IFormDialogProps } from "../interfaces/IFormDialogProps";
 import { IOrder } from "../interfaces/IOrder";
 import { createInvoicePdf } from "../../utils/createInvoicePdf";
+import { DeliveryMethods } from "../../data/DeliveryMethods";
 
 function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
   return (
@@ -78,6 +79,27 @@ function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
                 {JobStatuses.map((jobStatus) => (
                   <MenuItem key={jobStatus.value} value={jobStatus.value}>
                     {jobStatus.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl sx={{ mt: 3 }} fullWidth>
+              <InputLabel id="deliveryMethod">Pristatymo būdas</InputLabel>
+              <Select
+                labelId="deliveryMethod"
+                id="deliveryMethod"
+                name="deliveryMethod"
+                label="Pristatymo būdas"
+                value={props.formDefaultValues.deliveryMethod}
+                fullWidth
+                style={{ pointerEvents: "none", opacity: 1 }}
+              >
+                {DeliveryMethods.map((deliveryMethod) => (
+                  <MenuItem
+                    key={deliveryMethod.value}
+                    value={deliveryMethod.value}
+                  >
+                    {deliveryMethod.label}
                   </MenuItem>
                 ))}
               </Select>

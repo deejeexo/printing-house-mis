@@ -7,6 +7,7 @@ import DataGridWindow from "../../components/DataGridWindow";
 import { IFormDialogProps } from "../../components/interfaces/IFormDialogProps";
 import { IOrder } from "../../components/interfaces/IOrder";
 import { JobStatuses } from "../../data/JobStatuses";
+import { DeliveryMethods } from "../../data/DeliveryMethods";
 
 function OrdersManagerPage() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ function OrdersManagerPage() {
     id: "",
     curator: "",
     jobPrice: 0,
+    deliveryMethod: 0,
   };
 
   const [formDefaultValues, setFormDefaultValues] = useState<IOrder>(
@@ -48,6 +50,7 @@ function OrdersManagerPage() {
         feedback: selectedItem.feedback,
         curator: selectedItem.curator,
         jobPrice: selectedItem.jobPrice,
+        deliveryMethod: selectedItem.deliveryMethod,
       });
       setFormType("Manage");
     } else {
@@ -122,6 +125,18 @@ function OrdersManagerPage() {
     {
       field: "quantity",
       headerName: "Kiekis",
+      width: 400,
+      editable: false,
+    },
+    {
+      field: "deliveryMethod",
+      headerName: "Pristatymo būdas",
+      valueGetter: (params) => {
+        const deliveryMethodLabel = DeliveryMethods.find(
+          (pos) => pos.value === Number(params.row.deliveryMethod)
+        )?.label;
+        return deliveryMethodLabel || params.row.deliveryMethod;
+      },
       width: 400,
       editable: false,
     },

@@ -13,6 +13,7 @@ import { IOrder } from "./interfaces/IOrder";
 import { IUser } from "./interfaces/IUser";
 import { IJobPrice } from "./interfaces/IJobPrice";
 import { createInvoicePdf } from "../utils/createInvoicePdf";
+import { DeliveryMethods } from "../data/DeliveryMethods";
 
 const ProductCard = (props: IOrder) => {
   const initialFormDefaultValues: IUser[] = [];
@@ -122,6 +123,14 @@ const ProductCard = (props: IOrder) => {
             {
               JobStatuses.find((status) => status.value === props.jobStatus)
                 ?.label
+            }
+          </Typography>
+          <Typography variant="h6">
+            Pristatymo būdas:{" "}
+            {
+              DeliveryMethods.find(
+                (status) => status.value === props.deliveryMethod
+              )?.label
             }
           </Typography>
           <Typography variant="h6">

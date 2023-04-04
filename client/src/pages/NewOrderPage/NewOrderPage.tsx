@@ -1,10 +1,17 @@
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import ErrorRoundedIcon from "@mui/icons-material/ErrorRounded";
 import {
   Alert,
   Box,
   Button,
   DialogContentText,
   DialogTitle,
+  FormControl,
+  InputLabel,
   LinearProgress,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
   Snackbar,
   TextField,
 } from "@mui/material";
@@ -12,8 +19,7 @@ import Paper from "@mui/material/Paper";
 import axios from "axios";
 import { useRef, useState } from "react";
 import { IFileUploadReponse } from "../../components/interfaces/IFileUploadResponse";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import ErrorRoundedIcon from "@mui/icons-material/ErrorRounded";
+import { DeliveryMethods } from "../../data/DeliveryMethods";
 import { reloadPage } from "../../utils/reloadPage";
 
 function NewOrderPage() {
@@ -25,6 +31,11 @@ function NewOrderPage() {
   const [open, setOpen] = useState(true);
   const [error, setError] = useState(false);
   const currentDate: Date = new Date();
+  const [deliveryMethod, setDeliveryMethod] = useState("1");
+
+  const handleStatusChange = (event: SelectChangeEvent) => {
+    setDeliveryMethod(event.target.value);
+  };
 
   const handleCloseSnackBar = (
     event?: React.SyntheticEvent | Event,
@@ -67,6 +78,10 @@ function NewOrderPage() {
     const fileUrl = fileUploadResponse.link;
     const quantity = filledFormData.get("quantity");
     const jobStatus = 16;
+    const deliveryMethod = filledFormData.get("deliveryMethod");
+    const deliveryMethodValue = filledFormData
+      ? parseInt(deliveryMethod as string)
+      : 0;
     const due: Date = new Date(currentDate.setDate(currentDate.getDate() + 14));
 
     try {
@@ -81,6 +96,7 @@ function NewOrderPage() {
           quantity: quantity,
           jobStatus: jobStatus,
           due: due,
+          deliveryMethod: deliveryMethodValue,
         },
       });
       setLoading(false);
@@ -172,6 +188,31 @@ function NewOrderPage() {
             id="quantity"
             error={fieldEroor}
           />
+          <FormControl sx={{ mt: 3 }} fullWidth>
+            <InputLabel id="jobStatus">Pristatymo būdas</InputLabel>
+            <Select
+              onFocus={() => {
+                setFieldError(false);
+              }}
+              onChange={handleStatusChange}
+              labelId="deliveryMethod"
+              id="deliveryMethod"
+              name="deliveryMethod"
+              label="Pristatymo būdas"
+              fullWidth
+              error={fieldEroor}
+              value={deliveryMethod}
+            >
+              {DeliveryMethods.map((deliveryMethod) => (
+                <MenuItem
+                  key={deliveryMethod.value}
+                  value={deliveryMethod.value}
+                >
+                  {deliveryMethod.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <Button
             onClick={handleClick}
             variant={"contained"}
