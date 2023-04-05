@@ -167,11 +167,15 @@ const ProductCard = (props: IOrder) => {
               ? "Laukiamas kuratoriaus patvirtinimas"
               : formatCurrency(jobPrice.jobPrice)}
           </Typography>
+          <hr />
           <Typography variant="h6">
             Užsakovo tel. numeris: {customer.phoneNumber}
           </Typography>
           <Typography variant="h6">
             Užsakovo el. paštas: {customer.email}
+          </Typography>
+          <Typography variant="h6">
+            Užsakovo adresas: {customer.address}
           </Typography>
           <CardActions
             sx={{
