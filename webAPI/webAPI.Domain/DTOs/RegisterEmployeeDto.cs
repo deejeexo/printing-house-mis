@@ -16,8 +16,6 @@ namespace webAPI.Domain.DTOs
 
         public required string Address { get; set; }
 
-        public required int Salary { get; set; }
-
         public Position? Position { get; set; }
     }
 }

@@ -56,7 +56,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
           email: email,
           phoneNumber: removeWhitespaces(phoneNumber),
           address: address,
-          salary: 0,
           position: positionValue,
         },
       });
@@ -90,7 +89,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
           email: email,
           phoneNumber: removeWhitespaces(phoneNumber),
           address: address,
-          salary: 0,
           position: positionValue,
         },
       });

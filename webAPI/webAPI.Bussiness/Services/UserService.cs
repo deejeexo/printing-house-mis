@@ -107,7 +107,6 @@ namespace webAPI.Bussiness.Services
                 userToUpdate.FullName = userDto.FullName;
                 userToUpdate.PhoneNumber = userDto.PhoneNumber;
                 userToUpdate.Address = userDto.Address;
-                userToUpdate.Salary = userDto.Salary;
                 userToUpdate.Position = userDto.Position;
                 userToUpdate.UserType = UserType.Employee;
                 _unitOfWork.User.Update(userToUpdate);

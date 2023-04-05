@@ -24,9 +24,6 @@ namespace webAPI.Domain.Models
         [Required]
         public required UserType UserType { get; set; }
 
-        [Required]
-        public required int Salary { get; set; }
-
         public Position? Position { get; set; }
     }
 }
