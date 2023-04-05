@@ -49,7 +49,9 @@ function NewOrderPage() {
     setLoaded(false);
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitWithFile = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     setLoading(true);
     event.preventDefault();
     const formData = new FormData();
@@ -76,6 +78,48 @@ function NewOrderPage() {
     const name = filledFormData.get("name");
     const description = filledFormData.get("description");
     const fileUrl = fileUploadResponse.link;
+    const quantity = filledFormData.get("quantity");
+    const jobStatus = 16;
+    const deliveryMethod = filledFormData.get("deliveryMethod");
+    const deliveryMethodValue = filledFormData
+      ? parseInt(deliveryMethod as string)
+      : 0;
+    const due: Date = new Date(currentDate.setDate(currentDate.getDate() + 14));
+
+    try {
+      await axios({
+        method: "post",
+        url: "https://localhost:7198/job/create-job",
+        data: {
+          customerId: customerId,
+          name: name,
+          description: description,
+          fileUrl: fileUrl,
+          quantity: quantity,
+          jobStatus: jobStatus,
+          due: due,
+          deliveryMethod: deliveryMethodValue,
+        },
+      });
+      setLoading(false);
+      setLoaded(true);
+      reloadPage(2000);
+    } catch (error) {
+      console.error(error);
+      setError(true);
+      reloadPage(2000);
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
+    event.preventDefault();
+    const filledFormData = new FormData(event.currentTarget);
+
+    const customerId = sessionStorage.getItem("userID");
+    const name = filledFormData.get("name");
+    const description = filledFormData.get("description");
+    const fileUrl = "";
     const quantity = filledFormData.get("quantity");
     const jobStatus = 16;
     const deliveryMethod = filledFormData.get("deliveryMethod");
@@ -155,7 +199,7 @@ function NewOrderPage() {
         <Box
           component="form"
           noValidate
-          onSubmit={handleSubmit}
+          onSubmit={selectedFile ? handleSubmitWithFile : handleSubmit}
           sx={{ padding: 2 }}
         >
           <TextField

@@ -106,8 +106,13 @@ function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
             </FormControl>
             <Button
               variant="contained"
+              fullWidth
               href={props.formDefaultValues.fileUrl}
-              sx={{ mt: 3 }}
+              sx={{
+                mt: 3,
+                display:
+                  props.formDefaultValues.fileUrl === "" ? "none" : "flex",
+              }}
               target="_blank"
             >
               Atsisiųsti užsakymo failą
@@ -117,11 +122,12 @@ function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
                 createInvoicePdf(props.formDefaultValues.id);
               }}
               variant="contained"
+              fullWidth
               sx={{
                 display: [13, 14, 15].includes(
                   props.formDefaultValues.jobStatus
                 )
-                  ? "block"
+                  ? "flex"
                   : "none",
                 mt: 2,
               }}

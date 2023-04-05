@@ -87,14 +87,16 @@ const ProductCard = (props: IOrder) => {
         }
       );
 
-    axios.get<IUser>(`https://localhost:7198/user/${props.curator}`, {}).then(
-      (response) => {
-        setCurator(response.data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (props.curator) {
+      axios.get<IUser>(`https://localhost:7198/user/${props.curator}`, {}).then(
+        (response) => {
+          setCurator(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
 
     axios
       .get<IJobPrice>(`https://localhost:7198/job/job-price/${props.id}`, {})
@@ -219,7 +221,7 @@ const ProductCard = (props: IOrder) => {
             <Button
               variant="contained"
               href={props.fileUrl}
-              sx={{ ml: 1 }}
+              sx={{ ml: 1, display: props.fileUrl === "" ? "none" : "block" }}
               target="_blank"
             >
               Atsisiųsti užsakymo failą
