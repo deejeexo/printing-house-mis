@@ -35,7 +35,6 @@ const ProductCard = (props: IOrder) => {
     email: "",
     phoneNumber: "",
     address: "",
-    salary: 0,
     userType: 0,
   });
   const [customer, setCustomer] = useState<IUser>({
@@ -44,7 +43,6 @@ const ProductCard = (props: IOrder) => {
     email: "",
     phoneNumber: "",
     address: "",
-    salary: 0,
     userType: 0,
   });
 

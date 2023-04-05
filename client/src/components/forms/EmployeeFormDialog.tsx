@@ -43,7 +43,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
     const password = data.get("password");
     const address = data.get("address");
     const position = data.get("position");
-    const salary = data.get("salary");
     const positionValue = position ? parseInt(position as string) : 0;
 
     data.delete("position");
@@ -57,7 +56,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
           email: email,
           phoneNumber: removeWhitespaces(phoneNumber),
           address: address,
-          salary: salary,
+          salary: 0,
           position: positionValue,
         },
       });
@@ -78,7 +77,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
     const phoneNumber = data.get("phone");
     const address = data.get("address");
     const position = data.get("position");
-    const salary = data.get("salary");
     const positionValue = position ? parseInt(position as string) : 0;
 
     data.delete("position");
@@ -92,7 +90,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
           email: email,
           phoneNumber: removeWhitespaces(phoneNumber),
           address: address,
-          salary: salary,
+          salary: 0,
           position: positionValue,
         },
       });
@@ -202,19 +200,6 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               placeholder="pvz. Gedimino pr. 28, LT-01104, Vilniaus m. sav."
               error={fieldEroor}
               defaultValue={props.formDefaultValues.address}
-            />
-            <TextField
-              sx={{ marginBottom: 3 }}
-              type="number"
-              onFocus={() => {
-                setFieldError(false);
-              }}
-              fullWidth
-              id="salary"
-              label="Alyginimas"
-              name="salary"
-              error={fieldEroor}
-              defaultValue={props.formDefaultValues.salary}
             />
             <FormControl fullWidth>
               <InputLabel id="position">Pareigos</InputLabel>

@@ -6,6 +6,5 @@ export interface IUser {
   phoneNumber: string;
   address: string;
   position?: string;
-  salary: number;
   userType: number;
 }

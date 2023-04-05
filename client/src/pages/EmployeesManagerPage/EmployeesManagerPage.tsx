@@ -18,7 +18,6 @@ function EmployeesManagerPage() {
     phoneNumber: "",
     address: "",
     position: "",
-    salary: 0,
     userType: 0,
   };
 
@@ -41,7 +40,6 @@ function EmployeesManagerPage() {
         phoneNumber: selectedItem.phoneNumber,
         address: selectedItem.address,
         position: selectedItem.position,
-        salary: selectedItem.salary,
         userType: selectedItem.userType,
       });
       setFormType("EditForm");
@@ -102,12 +100,6 @@ function EmployeesManagerPage() {
         return positionLabel || params.row.position;
       },
       width: 300,
-      editable: false,
-    },
-    {
-      field: "salary",
-      headerName: "Atlyginimas (€)",
-      width: 120,
       editable: false,
     },
     {
