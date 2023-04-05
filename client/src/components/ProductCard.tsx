@@ -38,6 +38,15 @@ const ProductCard = (props: IOrder) => {
     salary: 0,
     userType: 0,
   });
+  const [customer, setCustomer] = useState<IUser>({
+    id: "",
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+    salary: 0,
+    userType: 0,
+  });
 
   function formatCurrency(
     value: number,
@@ -67,6 +76,17 @@ const ProductCard = (props: IOrder) => {
       }
     );
 
+    axios
+      .get<IUser>(`https://localhost:7198/user/${props.customerId}`, {})
+      .then(
+        (response) => {
+          setCustomer(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+
     axios.get<IUser>(`https://localhost:7198/user/${props.curator}`, {}).then(
       (response) => {
         setCurator(response.data);
@@ -86,7 +106,7 @@ const ProductCard = (props: IOrder) => {
           console.log(error);
         }
       );
-  }, [props.curator, props.id]);
+  }, [props.curator, props.id, props.customerId]);
 
   return (
     <>
@@ -146,6 +166,12 @@ const ProductCard = (props: IOrder) => {
             {jobPrice.jobPrice === 0
               ? "Laukiamas kuratoriaus patvirtinimas"
               : formatCurrency(jobPrice.jobPrice)}
+          </Typography>
+          <Typography variant="h6">
+            Užsakovo tel. numeris: {customer.phoneNumber}
+          </Typography>
+          <Typography variant="h6">
+            Užsakovo el. paštas: {customer.email}
           </Typography>
           <CardActions
             sx={{
