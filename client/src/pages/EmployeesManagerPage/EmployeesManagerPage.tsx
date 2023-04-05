@@ -142,7 +142,7 @@ function EmployeesManagerPage() {
           handleOpen();
         }}
       >
-        Pridėti darbuotoją
+        Pridėti naudotoją
       </Button>
       <Button
         variant="contained"
@@ -152,7 +152,7 @@ function EmployeesManagerPage() {
         }}
         disabled={formType === "EditForm" ? false : true}
       >
-        Atnaujinti darbuotojo informaciją
+        Atnaujinti naudotojo informaciją
       </Button>
       <Button
         variant="contained"

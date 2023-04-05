@@ -120,20 +120,20 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
           sx={{ mt: 1 }}
         >
           {props.formType === "NewForm" ? (
-            <DialogTitle>Naujo darbuotojo pridėjimas</DialogTitle>
+            <DialogTitle>Naujo naudotojo pridėjimas</DialogTitle>
           ) : (
-            <DialogTitle>Darbuotojo informacijos atnaujinimas</DialogTitle>
+            <DialogTitle>Naudotojo informacijos atnaujinimas</DialogTitle>
           )}
           <DialogContent>
             {props.formType === "NewForm" ? (
               <DialogContentText sx={{ mb: 2 }}>
-                Įvedus ir išsaugojus informaciją, naujojo darbuotojo profilis
-                įtraukiamas į įmonės darbuotojų sąrašą ir tampa oficialia
+                Įvedus ir išsaugojus informaciją, naujojo naudotojo profilis
+                įtraukiamas į įmonės naudotojų sąrašą ir tampa oficialia
                 organizacijos dalimi.
               </DialogContentText>
             ) : (
               <DialogContentText sx={{ mb: 2 }}>
-                Įvedus ir išsaugojus informaciją, darbuotojo profilis yra
+                Įvedus ir išsaugojus informaciją, naudotojo profilis yra
                 atnaujinimas.
               </DialogContentText>
             )}
@@ -146,7 +146,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               id="email"
               label="El. paštas"
               name="email"
-              placeholder="Darbuotojo el. pašto galūnė turi baigtis '@printhaus.com'"
+              placeholder="Naudotojo el. pašto galūnė turi baigtis '@printhaus.com'"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.email}
             />
@@ -157,7 +157,7 @@ export default function EmployeeFormDialog(props: IFormDialogProps<IUser>) {
               }}
               fullWidth
               id="name"
-              label="Darbuotojo vardas, pavardė"
+              label="Naudotojo vardas, pavardė"
               name="name"
               error={fieldEroor}
               defaultValue={props.formDefaultValues.fullName}

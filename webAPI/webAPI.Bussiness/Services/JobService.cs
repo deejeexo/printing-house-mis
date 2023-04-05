@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using AutoMapper;
 using webAPI.Bussiness.Services.IServices;
 using webAPI.Bussiness.Utilities;
 using webAPI.Bussiness.Validations;
 using webAPI.Domain.DTOs;
+using webAPI.Domain.Enums;
 using webAPI.Domain.Models;
 using webAPI.Infrastructure.Persistence.Repository.IRepository;
 
@@ -21,7 +24,7 @@ namespace webAPI.Bussiness.Services
 			this._mapper = mapper;
 		}
 
-		public async Task<Result<Job>> CreateJob(JobDto jobdto)
+        public async Task<Result<Job>> CreateJob(JobDto jobdto)
 		{
 			var jobCreated = _mapper.Map<Job>(jobdto);
 			_unitOfWork.Job.Add(jobCreated);
@@ -113,13 +116,27 @@ namespace webAPI.Bussiness.Services
 
         public async Task<Job> UpdateJobStatus(UpdateJobStatusDto updateJobStatusDto)
         {
-            var jobToEdit = await _unitOfWork.Job.GetAsync(job => job.Id == updateJobStatusDto.JobId);
+            var jobToEdit = await _unitOfWork.Job.GetAsync(job => job.Id == updateJobStatusDto.JobId, nameof(Job.User));
             if (jobToEdit != null)
             {
                 jobToEdit.Due = updateJobStatusDto.Due;
                 jobToEdit.JobStatus = updateJobStatusDto.JobStatus;
                 _unitOfWork.Job.Update(jobToEdit);
                 await _unitOfWork.SaveAsync();
+
+                if (updateJobStatusDto.JobStatus.Equals(JobStatus.Billing))
+                {
+                    EmailSender.SendBillingEmail(jobToEdit.User!.Email, jobToEdit.Name);
+                } else if (updateJobStatusDto.JobStatus.Equals(JobStatus.PaymentReceived))
+                {
+                    EmailSender.SendPaymentReceivedEmail(jobToEdit.User!.Email, jobToEdit.Name);
+                } else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Approved))
+                {
+                    EmailSender.SendJobApproveEmail(jobToEdit.User!.Email, jobToEdit.Name);
+                } else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Cancelled | JobStatus.Delayed))
+                {
+                    EmailSender.SendRejectedEmail(jobToEdit.User!.Email, jobToEdit.Name);
+                }
             }
             return jobToEdit!;
         }
