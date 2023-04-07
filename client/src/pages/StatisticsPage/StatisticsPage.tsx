@@ -22,6 +22,19 @@ function StatisticsPage() {
     return Intl.NumberFormat("us").format(number).toString();
   };
 
+  function formatCurrency(
+    value: number,
+    currency: string = "EUR",
+    locale: string = "lt-LT"
+  ): string {
+    const formatter = new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 2,
+    });
+
+    return formatter.format(value);
+  }
   const jobStatusStatisticsChartData = [
     {
       name: "Naujas",
@@ -201,11 +214,13 @@ function StatisticsPage() {
         </Card>
         <Card>
           <Text>Bendros įplaukos iš atliktų darbų</Text>
-          <Metric>{jobsRevenue?.jobsRevenue} €</Metric>
+          <Metric>{formatCurrency(jobsRevenue?.jobsRevenue || 0)}</Metric>
         </Card>
         <Card>
           <Text>Vidutinės įplaukos</Text>
-          <Metric>{jobsRevenue?.jobsAverageRevenue} €</Metric>
+          <Metric>
+            {formatCurrency(jobsRevenue?.jobsAverageRevenue || 0)}
+          </Metric>
         </Card>
       </Grid>
       <Card>
