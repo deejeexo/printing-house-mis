@@ -94,6 +94,28 @@ namespace webAPI.Bussiness.Utilities
                 Console.WriteLine(ex);
             }
         }
+
+        public static void SendCompletedeEmail(string customerEmail, string jobName)
+        {
+            try
+            {
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("devidas.vgtu.practice@gmail.com");
+                mailMessage.To.Add(customerEmail);
+                mailMessage.Subject = $"Jūsų užsakymas #{jobName} buvo sėkmingai įvykdytas!";
+                mailMessage.Body = $"Sveiki, norime pranešti, kad jūsų užsakymas - #{jobName} buvo sėkmingai įvykdytas. Primename, kad savo užsakymo būseną galite stebėti prisijungę prie savo paskyros.";
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("devidas.vgtu.practice@gmail.com", "duwgghdsucofagun");
+                smtpClient.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
     }
 }
 

@@ -98,6 +98,12 @@ namespace webAPI.Bussiness.Services
             return _mapper.Map<List<UserDto>>(employees);
         }
 
+        public async Task<IEnumerable<UserDto>> GetActiveEmployees()
+        {
+            var employees = await _unitOfWork.User.GetAllAsync(user => user.UserType == UserType.Employee && user.UserType != UserType.Disabled);
+            return _mapper.Map<List<UserDto>>(employees);
+        }
+
         public async Task<User> UpdateEmployee(UserDto userDto)
         {
             var userToUpdate = await _unitOfWork.User.GetAsync(user => user.Id == userDto.Id);

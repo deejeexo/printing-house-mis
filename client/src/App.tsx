@@ -13,6 +13,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import UserSettingsPage from "./pages/UserSettingsPage/UserSettingsPage";
 import OrdersManagerPage from "./pages/OrdersManagerPage/OrdersManagerPage";
 import SelectedOrderManager from "./pages/SelectedOrderManager/SelectedOrderManager";
+import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
 function App() {
   return (
@@ -97,6 +98,15 @@ function App() {
             <Paperbase
               content={<SelectedOrderManager />}
               header={"Užsakymo valdymas"}
+            ></Paperbase>
+          }
+        />
+        <Route
+          path="/statistics"
+          element={
+            <Paperbase
+              content={<StatisticsPage />}
+              header={"Įmonės statistika"}
             ></Paperbase>
           }
         />

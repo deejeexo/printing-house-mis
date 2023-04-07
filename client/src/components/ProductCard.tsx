@@ -65,7 +65,7 @@ const ProductCard = (props: IOrder) => {
   };
 
   useEffect(() => {
-    axios.get<IUser[]>(`https://localhost:7198/user/employees`, {}).then(
+    axios.get<IUser[]>(`https://localhost:7198/user/employees-active`, {}).then(
       (response) => {
         setFormDefaultValues(response.data);
       },
@@ -209,7 +209,7 @@ const ProductCard = (props: IOrder) => {
               }}
               variant="contained"
               sx={{
-                display: [13, 14, 15].includes(props.jobStatus)
+                display: [13, 14, 15, 2, 12].includes(props.jobStatus)
                   ? "block"
                   : "none",
               }}

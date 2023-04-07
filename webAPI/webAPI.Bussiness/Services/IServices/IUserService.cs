@@ -21,6 +21,8 @@ namespace webAPI.Bussiness.Services.IServices
 
         Task<IEnumerable<UserDto>> GetEmployees();
 
+        Task<IEnumerable<UserDto>> GetActiveEmployees();
+
         void CreatePasswordHashSalt(string password, out byte[] passwordHash, out byte[] passwordSalt);
     }
 }

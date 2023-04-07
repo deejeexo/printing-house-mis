@@ -56,6 +56,9 @@ namespace webAPI.Controllers
         [HttpGet("employees")]
         public async Task<ActionResult<IEnumerable<User>>> GetEmployees() => Ok(await _userService.GetEmployees());
 
+        [HttpGet("employees-active")]
+        public async Task<ActionResult<IEnumerable<User>>> GetActiveEmployees() => Ok(await _userService.GetActiveEmployees());
+
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<User>> GetUser(Guid id) => Ok(await _userService.GetUser(id));
 

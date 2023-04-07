@@ -17,6 +17,7 @@ import LogoComponent from "../assets/LogoComponent";
 import { ISidebarCategories } from "./interfaces/ISidebarCategories";
 import NewspaperRoundedIcon from "@mui/icons-material/NewspaperRounded";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
+import StackedLineChartRoundedIcon from "@mui/icons-material/StackedLineChartRounded";
 
 function Sidebar(props: DrawerProps) {
   const { ...other } = props;
@@ -89,6 +90,13 @@ function Sidebar(props: DrawerProps) {
             icon: <ConstructionRoundedIcon />,
             active: false,
             navigateTo: "/consumablemanager",
+            allowedCategories: [0, 1, 5],
+          },
+          {
+            id: "Įmonės statistika",
+            icon: <StackedLineChartRoundedIcon />,
+            active: false,
+            navigateTo: "/statistics",
             allowedCategories: [0, 1, 5],
           },
         ],

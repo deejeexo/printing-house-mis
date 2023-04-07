@@ -127,15 +127,22 @@ namespace webAPI.Bussiness.Services
                 if (updateJobStatusDto.JobStatus.Equals(JobStatus.Billing))
                 {
                     EmailSender.SendBillingEmail(jobToEdit.User!.Email, jobToEdit.Name);
-                } else if (updateJobStatusDto.JobStatus.Equals(JobStatus.PaymentReceived))
+                }
+                else if (updateJobStatusDto.JobStatus.Equals(JobStatus.PaymentReceived))
                 {
                     EmailSender.SendPaymentReceivedEmail(jobToEdit.User!.Email, jobToEdit.Name);
-                } else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Approved))
+                }
+                else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Approved))
                 {
                     EmailSender.SendJobApproveEmail(jobToEdit.User!.Email, jobToEdit.Name);
-                } else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Cancelled | JobStatus.Delayed))
+                }
+                else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Cancelled | JobStatus.Delayed))
                 {
                     EmailSender.SendRejectedEmail(jobToEdit.User!.Email, jobToEdit.Name);
+                }
+                else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Completed))
+                {
+                    EmailSender.SendCompletedeEmail(jobToEdit.User!.Email, jobToEdit.Name);
                 }
             }
             return jobToEdit!;
