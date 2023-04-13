@@ -17,12 +17,16 @@ namespace webAPI.Bussiness.Services
 	{
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
+        private readonly IEquipmentService _equipmentService;
+        private readonly IConsumableService _consumableService;
 
-		public JobService(IUnitOfWork unitOfWork, IMapper mapper)
+        public JobService(IUnitOfWork unitOfWork, IMapper mapper, IConsumableService consumableService, IEquipmentService equipmentService)
 		{
 			this._unitOfWork = unitOfWork;
 			this._mapper = mapper;
-		}
+            this._consumableService = consumableService;
+            this._equipmentService = equipmentService;
+        }
 
         public async Task<Result<Job>> CreateJob(JobDto jobdto)
 		{

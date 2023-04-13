@@ -15,6 +15,8 @@ namespace webAPI.Bussiness.Services.IServices
         Task<Consumable> EditConsumable(ConsumableDto consumableDto);
 
         Task<Consumable> DeleteConsumable(Guid consumableId);
+
+        Task<Consumable?> GetConsumable(Guid id);
     }
 }
 

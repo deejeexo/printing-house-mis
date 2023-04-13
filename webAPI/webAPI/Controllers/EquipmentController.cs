@@ -39,6 +39,9 @@ namespace webAPI.Controllers
 			var editedEquipment = await _equipmentService.EditEquipment(equipmentDto);
 			return Ok();
 		}
+
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Equipment>> GetEquipment(Guid id) => Ok(await _equipmentService.GetEquipment(id));
     }
 }
 

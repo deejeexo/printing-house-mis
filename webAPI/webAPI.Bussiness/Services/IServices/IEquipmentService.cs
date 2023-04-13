@@ -12,6 +12,8 @@ namespace webAPI.Bussiness.Services.IServices
         Task<Equipment> EditEquipment(EquipmentDto equipmentDto);
 
         Task<IEnumerable<EquipmentDto>> GetAllEquipments();
+
+        Task<Equipment?> GetEquipment(Guid id);
     }
 }
 

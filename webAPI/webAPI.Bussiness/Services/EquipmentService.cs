@@ -48,6 +48,13 @@ namespace webAPI.Bussiness.Services
             var equipmentsDto = _mapper.Map<List<EquipmentDto>>(equipments);
             return equipmentsDto;
         }
+
+        public async Task<Equipment?> GetEquipment(Guid id)
+        {
+            var equipment = await _unitOfWork.Equipment.GetAsync(equipment => equipment.Id == id);
+            if (equipment is not null) return _mapper.Map<Equipment>(equipment);
+            return null;
+        }
     }
 }
 

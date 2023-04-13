@@ -47,6 +47,9 @@ namespace webAPI.Controllers
             await _consumableService.DeleteConsumable(id);
             return Ok("Consumable deleted successfully");
         }
+
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Consumable>> GetConsumable(Guid id) => Ok(await _consumableService.GetConsumable(id));
     }
 }
 

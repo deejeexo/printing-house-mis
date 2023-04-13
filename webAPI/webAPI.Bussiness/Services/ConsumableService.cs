@@ -59,6 +59,14 @@ namespace webAPI.Bussiness.Services
 			var consumables = await _unitOfWork.Consumable.GetAllAsync();
 			return _mapper.Map<List<ConsumableDto>>(consumables);
         }
+
+
+        public async Task<Consumable?> GetConsumable(Guid id)
+        {
+            var consumable = await _unitOfWork.Consumable.GetAsync(consumable => consumable.Id == id);
+            if (consumable is not null) return _mapper.Map<Consumable>(consumable);
+            return null;
+        }
     }
 }
 
