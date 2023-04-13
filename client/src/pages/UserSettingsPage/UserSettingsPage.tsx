@@ -51,7 +51,7 @@ function UserSettingsPage() {
           id: sessionStorage.getItem("userID"),
           fullName: name,
           email: user?.email,
-          phoneNumber: removeWhitespaces(phone),
+          phoneNumber: removeWhitespaces(phone) || user?.phoneNumber,
           address: address,
           position: user?.position,
         },

@@ -159,6 +159,14 @@ namespace webAPI.Bussiness.Services
             {
                 return null!;
             }
+
+            var consumable = _consumableService.GetConsumable(addJobConsumableDto.ConsumableId);
+
+            if (consumable.Result!.Quantity < addJobConsumableDto.QuantityUsed)
+            {
+                return null!;
+            }
+
             var jobConsumable = _mapper.Map<JobConsumable>(addJobConsumableDto);
             _unitOfWork.JobConsumable.Add(jobConsumable);
             await _unitOfWork.SaveAsync();
@@ -172,6 +180,7 @@ namespace webAPI.Bussiness.Services
             {
                 return null!;
             }
+
             var jobEquipment = _mapper.Map<JobEquipment>(addJobEquipmentDto);
             _unitOfWork.JobEquipment.Add(jobEquipment);
             await _unitOfWork.SaveAsync();

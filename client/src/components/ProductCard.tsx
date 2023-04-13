@@ -191,6 +191,9 @@ const ProductCard = (props: IOrder) => {
                 handleStatusChangeOpen();
               }}
               variant="contained"
+              sx={{
+                display: props.jobStatus !== 15 ? "block" : "none",
+              }}
             >
               Atnaujinti užsakymo informaciją
             </Button>
@@ -199,7 +202,10 @@ const ProductCard = (props: IOrder) => {
                 handleOpen();
               }}
               variant="contained"
-              sx={{ display: position === "1" ? "block" : "none" }}
+              sx={{
+                display:
+                  position === "1" && props.jobStatus !== 15 ? "block" : "none",
+              }}
             >
               Priskirti atsakingą darbuotoją
             </Button>
