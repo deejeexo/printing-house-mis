@@ -121,6 +121,20 @@ namespace webAPI.Bussiness.Services
             return userToUpdate!;
         }
 
+        public async Task<User> UpdateUser(UserDto userDto)
+        {
+            var userToUpdate = await _unitOfWork.User.GetAsync(user => user.Id == userDto.Id);
+            if (userToUpdate != null)
+            {
+                userToUpdate.FullName = userDto.FullName;
+                userToUpdate.PhoneNumber = userDto.PhoneNumber;
+                userToUpdate.Address = userDto.Address;
+                _unitOfWork.User.Update(userToUpdate);
+                await _unitOfWork.SaveAsync();
+            }
+            return userToUpdate!;
+        }
+
         public async Task<User> TurnOffEmployeeAccount(TurnOffEmployeeAccountDto turnOffEmployeeAccountDto)
         {
             var userToUpdate = await _unitOfWork.User.GetAsync(user => user.Id == turnOffEmployeeAccountDto.Id);

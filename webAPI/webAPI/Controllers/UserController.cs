@@ -69,6 +69,13 @@ namespace webAPI.Controllers
             return Ok();
         }
 
+        [HttpPost("update-user")]
+        public async Task<ActionResult<User>> UpdateUser([FromBody] UserDto userDto)
+        {
+            var updateUser = await _userService.UpdateUser(userDto);
+            return Ok();
+        }
+
         [HttpPost("turn-off-employee-account")]
         public async Task<ActionResult<User>> TurnOffEmployeeAccount([FromBody] TurnOffEmployeeAccountDto turnOffEmployeeAccountDto)
         {

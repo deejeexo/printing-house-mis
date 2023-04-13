@@ -17,6 +17,8 @@ namespace webAPI.Bussiness.Services.IServices
 
         Task<User> UpdateEmployee(UserDto userDto);
 
+        Task<User> UpdateUser(UserDto userDto);
+
         Task<User> TurnOffEmployeeAccount(TurnOffEmployeeAccountDto turnOffEmployeeAccountDto);
 
         Task<IEnumerable<UserDto>> GetEmployees();
