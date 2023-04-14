@@ -167,6 +167,9 @@ namespace webAPI.Bussiness.Services
                 return null!;
             }
 
+            consumable.Result.Quantity = consumable.Result.Quantity - addJobConsumableDto.QuantityUsed;
+            _unitOfWork.Consumable.Update(consumable.Result);
+
             var jobConsumable = _mapper.Map<JobConsumable>(addJobConsumableDto);
             _unitOfWork.JobConsumable.Add(jobConsumable);
             await _unitOfWork.SaveAsync();
@@ -205,6 +208,9 @@ namespace webAPI.Bussiness.Services
             if (consumableToDelete != null)
             {
                 _unitOfWork.JobConsumable.Remove(consumableToDelete);
+                var consumable = _consumableService.GetConsumable(consumableToDelete!.ConsumableId);
+                consumable.Result!.Quantity = consumable.Result.Quantity + consumableToDelete.QuantityUsed;
+                _unitOfWork.Consumable.Update(consumable.Result);
                 await _unitOfWork.SaveAsync();
             }
 
