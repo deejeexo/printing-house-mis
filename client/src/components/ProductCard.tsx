@@ -1,4 +1,4 @@
-import { Button, CardActions } from "@mui/material";
+import { Button, CardActions, Rating } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -167,6 +167,16 @@ const ProductCard = (props: IOrder) => {
               ? "Laukiamas kuratoriaus patvirtinimas"
               : formatCurrency(jobPrice.jobPrice)}
           </Typography>
+          {props.rating !== null ? (
+            <>
+              <Rating disabled={true} value={props.rating} />
+              <Typography variant="h6">
+                Atsiliepimas: {props.feedback}
+              </Typography>
+            </>
+          ) : (
+            ""
+          )}
           <hr />
           <Typography variant="h6">
             Užsakovo tel. numeris: {customer.phoneNumber}
