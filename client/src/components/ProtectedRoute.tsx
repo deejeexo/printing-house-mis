@@ -11,11 +11,43 @@ function ProtectedRoute(props: IProtectedRoute) {
     const routes = [
       {
         path: "/news",
+        allowedRoles: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      },
+      {
+        path: "/neworder",
         allowedRoles: [0],
+      },
+      {
+        path: "/orders",
+        allowedRoles: [0],
+      },
+      {
+        path: "/ordersmanager",
+        allowedRoles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      },
+      {
+        path: "/statistics",
+        allowedRoles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      },
+      {
+        path: "/employeesmanager",
+        allowedRoles: [1],
       },
       {
         path: "/equipmentmanager",
         allowedRoles: [1],
+      },
+      {
+        path: "/consumablemanager",
+        allowedRoles: [1],
+      },
+      {
+        path: "/ordersmanager",
+        allowedRoles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      },
+      {
+        path: "/usersettings",
+        allowedRoles: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       },
     ];
     const userLoggedInValue = sessionStorage.getItem("loggedIn");
@@ -29,8 +61,9 @@ function ProtectedRoute(props: IProtectedRoute) {
     setIsLoggedIn(true);
 
     const allowedRoles =
-      routes.find((route) => route.path === location.pathname)?.allowedRoles ||
-      [];
+      routes.find(
+        (route) => route.path === `/${location.pathname.split("/")[1]}`
+      )?.allowedRoles || [];
     if (!allowedRoles.includes(Number(position))) {
       return navigate("/accessdenied");
     }

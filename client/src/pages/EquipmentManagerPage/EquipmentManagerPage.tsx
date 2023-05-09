@@ -82,7 +82,7 @@ function EquipmentManagerPage() {
     },
     {
       field: "costPerHour",
-      headerName: "Valandos kaina",
+      headerName: "Valandos kaina [€]",
       width: 400,
       editable: false,
     },

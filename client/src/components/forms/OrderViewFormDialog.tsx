@@ -124,7 +124,7 @@ function OrderViewFormDialog(props: IFormDialogProps<IOrder>) {
               variant="contained"
               fullWidth
               sx={{
-                display: [13, 14, 15].includes(
+                display: [2, 13, 14, 15, 12].includes(
                   props.formDefaultValues.jobStatus
                 )
                   ? "flex"

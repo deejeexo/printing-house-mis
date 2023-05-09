@@ -29,6 +29,28 @@ namespace webAPI.Bussiness.Utilities
             }
         }
 
+        public static void SendDeliveredEmail(string customerEmail, string jobName)
+        {
+            try
+            {
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("devidas.vgtu.practice@gmail.com");
+                mailMessage.To.Add(customerEmail);
+                mailMessage.Subject = $"Jūsų užsakymas #{jobName} yra pristatytas!";
+                mailMessage.Body = $"Sveiki, norime pranešti, kad jūsų užsakymas - #{jobName} buvo pristatytas į jūsų nurodytą adresą ir laukia atsiėmimo.";
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("devidas.vgtu.practice@gmail.com", "duwgghdsucofagun");
+                smtpClient.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
         public static void SendPaymentReceivedEmail(string customerEmail, string jobName)
         {
             try

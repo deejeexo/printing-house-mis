@@ -200,11 +200,13 @@ function OrdersPage() {
       >
         Peržiūrėti užsakymo informaciją
       </Button>
-      {formDefaultValues.jobStatus === 15 && (
+      {[2, 15].includes(formDefaultValues.jobStatus) && (
         <Button
           variant="contained"
           sx={{ mt: 1, mb: 1, ml: 1, textTransform: "none" }}
-          disabled={formDefaultValues.jobStatus === 15 ? false : true}
+          disabled={
+            [2, 15].includes(formDefaultValues.jobStatus) ? false : true
+          }
           onClick={() => {
             handleOpenReview();
           }}

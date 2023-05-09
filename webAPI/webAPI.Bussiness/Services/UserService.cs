@@ -71,7 +71,7 @@ namespace webAPI.Bussiness.Services
         {
             if (!await _loginValidator.Validate(loginDto))
                 return new Result<LoginResponseDto>(new ValidationException(_loginValidator.Errors));
-            var userLoggedIn = await _unitOfWork.User.GetAsync(u => u.Email == loginDto.Email);
+            var userLoggedIn = await _unitOfWork.User.GetAsync(u => u.Email == loginDto.Email && u.UserType != UserType.Disabled);
             var response = _mapper.Map<LoginResponseDto>(userLoggedIn);
             return response;
         }

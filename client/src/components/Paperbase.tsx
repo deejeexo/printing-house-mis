@@ -178,7 +178,7 @@ export default function Paperbase(props: IPaperbaseProps) {
   return (
     <>
       <ProtectedRoute
-        disabled={true}
+        disabled={false}
         children={
           <ThemeProvider theme={theme}>
             <Box sx={{ display: "flex", minHeight: "100vh" }}>

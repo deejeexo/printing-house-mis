@@ -148,6 +148,10 @@ namespace webAPI.Bussiness.Services
                 {
                     EmailSender.SendCompletedeEmail(jobToEdit.User!.Email, jobToEdit.Name);
                 }
+                else if (updateJobStatusDto.JobStatus.Equals(JobStatus.Delivered))
+                {
+                    EmailSender.SendDeliveredEmail(jobToEdit.User!.Email, jobToEdit.Name);
+                }
             }
             return jobToEdit!;
         }
